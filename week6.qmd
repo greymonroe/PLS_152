@@ -9,4 +9,4 @@ title: "Week 6 — Gene discovery II & climate adaptation"
 Due: **Quiz 5** (Tue 3:10 PM) · Reflections. Heads-up: the
 [**midterm**](midterm.qmd) is due next Tue Nov 10, 3:10 PM.
 
-*Slides: posted after class.*
+*Slides: posted here before class.*

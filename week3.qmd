@@ -11,4 +11,4 @@ midterm topic. **BRING A LAPTOP.**
 Due: **Quiz 2** (Tue 3:10 PM) · Reflections. Heads-up: the
 [Midterm Topic Explorer](midterm.qmd) is due next Thu Oct 22, 3:10 PM.
 
-*Slides: posted after class.*
+*Slides: posted here before class.*

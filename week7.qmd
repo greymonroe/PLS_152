@@ -10,4 +10,4 @@ title: "Week 7 — MIDTERM DUE · SCOPE & genomics"
 
 Due: [**MIDTERM**](midterm.qmd) (Tue 3:10 PM, before class) · Reflections.
 
-*Slides: posted after class.*
+*Slides: posted here before class.*

@@ -12,4 +12,4 @@ genetics) is due next Tue Oct 6, 3:10 PM.
 This week's reading: [Bhattacharyya et al. 1990](readings.qmd) — the actual
 gene behind Mendel's wrinkled peas.
 
-*Slides: posted after class.*
+*Slides: posted here before class.*
