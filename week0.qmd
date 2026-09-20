@@ -1,0 +1,13 @@
+---
+title: "Week 0 — Welcome!"
+---
+
+**Thu Sep 24 — Intro: Why plant genetics is awesome** (Grey)
+
+Due: Reflection (11:59 PM Thursday, on Canvas).
+
+Get oriented: read the [syllabus](syllabus.qmd) and skim the
+[midterm prompt](midterm.qmd) — yes, already. The topic is your choice and it
+pays to start noticing what interests you.
+
+*Slides: posted after class.*

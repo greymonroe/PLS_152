@@ -1,0 +1,13 @@
+---
+title: "Week 7 — MIDTERM DUE · SCOPE & genomics"
+---
+
+**Tue Nov 10 — SCOPE: student-led plant breeding programs at UC Davis**
+(guests: SCOPE graduates)
+
+**Thu Nov 12 — The long and short of genomics: what does it mean to
+"sequence" something?** (guest: Dr. Chaehee Lee)
+
+Due: [**MIDTERM**](midterm.qmd) (Tue 3:10 PM, before class) · Reflections.
+
+*Slides: posted after class.*

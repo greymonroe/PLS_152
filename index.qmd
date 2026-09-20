@@ -1,0 +1,46 @@
+---
+title: "Plant Genetics (PLS 152) — Fall 2026"
+---
+
+**Instructor:** Grey Monroe (gmonroe@ucdavis.edu) · **TA:** Alice Pierce
+
+**Meetings:** Tuesdays & Thursdays, 3:10–5:00 PM, Veihmeyer Hall 212 — one
+continuous block with a short break (the registrar's separate 20-min
+"discussion" listing is an artifact; plan for the full 3:10–5:00).
+
+**CRN:** 42467 · 4 units · Prerequisite: BIS 2A
+
+How the course runs: a short **reflection** after each class (due 11:59 PM
+same day), **low-stakes quizzes** due Tuesdays at 3:10 PM covering the
+previous week, a **midterm paper** ([mini literature review](midterm.qmd)),
+and a **final group presentation**. Quizzes and submissions happen on Canvas;
+all course materials live here.
+
+## Schedule
+
+| Wk | Date | Topic | Due at 3:10 PM |
+|---|---|---|---|
+| 0 | Thu Sep 24 | [Intro: Why plant genetics is awesome](week0.qmd) | — |
+| 1 | Tue Sep 29 | [Transmission Genetics 1: Mendel's Rules](week1.qmd) | — |
+| 1 | Thu Oct 1 | [Transmission Genetics 2: Breaking Mendel's Rules](week1.qmd) | — |
+| 2 | Tue Oct 6 | [Mutations: the ultimate source of genetic variation](week2.qmd) | Quiz 1 |
+| 2 | Thu Oct 8 | [How does an allele cause a phenotype?](week2.qmd) | — |
+| 3 | Tue Oct 13 | [Reproduction / Domestication: origins of crops](week3.qmd) | Quiz 2 |
+| 3 | Thu Oct 15 | [MIDTERM LAUNCH: library session + work time — **bring a laptop**](week3.qmd) | — |
+| 4 | Tue Oct 20 | [Quantitative genetics (Dr. Mitch Feldmann)](week4.qmd) | Quiz 3 |
+| 4 | Thu Oct 22 | [Mars cacao greenhouse tour](week4.qmd) | Midterm Topic Explorer |
+| 5 | Tue Oct 27 | [Forward genetics: mutant screens, ABC & MutMap](week5.qmd) | Quiz 4 |
+| 5 | Thu Oct 29 | [GWAS/QTL mapping](week5.qmd) | Group preference survey |
+| 6 | Tue Nov 3 | [Finding the genes: why it's hard](week6.qmd) | Quiz 5 |
+| 6 | Thu Nov 5 | [Climate adaptation: 400 years of research](week6.qmd) | — |
+| 7 | Tue Nov 10 | [SCOPE: student-led plant breeding](week7.qmd) | **MIDTERM** |
+| 7 | Thu Nov 12 | [The long and short of genomics (Dr. Chaehee Lee)](week7.qmd) | — |
+| 8 | Tue Nov 17 | [Professions in plant science (Bayer panel)](week8.qmd) | "Quiz 7" check-in |
+| 8 | Thu Nov 19 | [Grad student research talks](week8.qmd) | — |
+| 9 | Tue Nov 24 | [No class: group work on presentations](week9.qmd) | "Quiz 8" check-in |
+| 9 | Thu Nov 26 | Thanksgiving — no class | — |
+| 10 | Tue Dec 1 | [FINAL presentations, part 1](week10.qmd) | Presentation + contributions |
+| 10 | Thu Dec 3 | [FINAL presentations, part 2](week10.qmd) | — |
+| F | Fri Dec 11 | — | Extra-credit memes, 5:00 PM |
+
+A reflection on each class meeting is due **11:59 PM that same day** (on Canvas).

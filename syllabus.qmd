@@ -1,0 +1,8 @@
+---
+title: "Syllabus"
+---
+
+The Fall 2026 syllabus will be posted here before the quarter begins.
+
+In the meantime, the [home page](index.qmd) has the schedule, meeting
+logistics, and how the course runs.

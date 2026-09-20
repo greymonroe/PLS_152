@@ -1,0 +1,12 @@
+---
+title: "Week 5 — Gene discovery I"
+---
+
+**Tue Oct 27 — Forward genetics: mutant screens, the ABC model & MutMap** (Grey)
+
+**Thu Oct 29 — GWAS/QTL mapping: genetics to phenotypes at large scales** (Grey)
+
+Due: **Quiz 4** (Tue 3:10 PM) · **Group preference survey** (Thu 3:10 PM — it
+decides your final-project group, don't skip it) · Reflections.
+
+*Slides: posted after class.*

@@ -1,0 +1,36 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "PLS 152 — Plant Genetics"
+  description: "Undergraduate plant genetics at UC Davis. Fall 2026."
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Weeks
+        menu:
+          - href: week0.qmd
+          - href: week1.qmd
+          - href: week2.qmd
+          - href: week3.qmd
+          - href: week4.qmd
+          - href: week5.qmd
+          - href: week6.qmd
+          - href: week7.qmd
+          - href: week8.qmd
+          - href: week9.qmd
+          - href: week10.qmd
+      - href: midterm.qmd
+        text: Midterm
+      - href: readings.qmd
+        text: Readings
+      - href: syllabus.qmd
+        text: Syllabus
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    link-external-newwindow: true

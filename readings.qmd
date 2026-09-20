@@ -1,0 +1,20 @@
+---
+title: "Course readings"
+---
+
+Primary research articles paired with each week's material. Each weekly quiz
+includes at least one question answerable from that week's paper (abstract
+and figures). Access via the DOI links (on campus or through the
+[UC Davis library VPN](https://www.library.ucdavis.edu/service/connect-from-off-campus/)).
+
+| Week | Paper | DOI |
+|---|---|---|
+| 1 | Bhattacharyya et al. (1990) *Cell* — Mendel's wrinkled-seed pea trait is a transposon insertion in a starch-branching enzyme gene | [10.1016/0092-8674(90)90721-p](https://doi.org/10.1016/0092-8674(90)90721-p) |
+| 2 | Davis et al. (2026) *PNAS* — Genome degradation in plant tissue culture (from our own Monroe Lab!) | [10.1073/pnas.2530182123](https://doi.org/10.1073/pnas.2530182123) |
+| 3 | Doebley et al. (1997) *Nature* — The evolution of apical dominance in maize | [10.1038/386485a0](https://doi.org/10.1038/386485a0) |
+| 4 | Motamayor et al. (2008) *PLoS ONE* — Geographic and genetic population differentiation of the chocolate tree | [10.1371/journal.pone.0003311](https://doi.org/10.1371/journal.pone.0003311) |
+| 5 | Coen & Meyerowitz (1991) *Nature* — The war of the whorls | [10.1038/353031a0](https://doi.org/10.1038/353031a0) |
+| 5 | Atwell et al. (2010) *Nature* — GWAS of 107 phenotypes in Arabidopsis inbred lines | [10.1038/nature08800](https://doi.org/10.1038/nature08800) |
+| 6–8 | Ågren et al. (2013) *PNAS* — Genetic mapping of adaptation reveals fitness tradeoffs in Arabidopsis | [10.1073/pnas.1316773110](https://doi.org/10.1073/pnas.1316773110) |
+| 6–8 | Lasky et al. (2016) *Science Advances* — Genome-environment associations in sorghum landraces | [10.1126/sciadv.1400218](https://doi.org/10.1126/sciadv.1400218) |
+| 6–8 | Zhang et al. (2022) *Nature Communications* — Climate change may outpace wheat breeding | [10.1038/s41467-022-33265-1](https://doi.org/10.1038/s41467-022-33265-1) |

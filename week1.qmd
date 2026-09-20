@@ -1,0 +1,15 @@
+---
+title: "Week 1 — Transmission genetics"
+---
+
+**Tue Sep 29 — Transmission Genetics 1: Mendel's Rules** (Grey)
+
+**Thu Oct 1 — Transmission Genetics 2: Breaking Mendel's Rules** (Grey)
+
+Due: Reflections (11:59 PM each class day). Heads-up: Quiz 1 (transmission
+genetics) is due next Tue Oct 6, 3:10 PM.
+
+This week's reading: [Bhattacharyya et al. 1990](readings.qmd) — the actual
+gene behind Mendel's wrinkled peas.
+
+*Slides: posted after class.*
