@@ -34,7 +34,10 @@ Then you have until **Nov 10** to write.
 
 ## Requirements
 
-- 1–2 pages, single-spaced; 12-point font
+- **Maximum 1,500 words** (roughly two single-spaced pages), not counting
+  references. There is no minimum, but the requirements below are hard to
+  satisfy in a very small number of words — let quality set your floor.
+- 12-point font
 - At least 5 peer-reviewed sources
 - A descriptive, informative title
 - Sections: **Introduction** (why the topic matters), **Discoveries** (the
