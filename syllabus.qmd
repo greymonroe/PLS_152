@@ -2,7 +2,196 @@
 title: "Syllabus"
 ---
 
-The Fall 2026 syllabus will be posted here before the quarter begins.
+**PLS 152: Plant Genetics, Fall 2026** · 4 units · CRN 42467
 
-In the meantime, the [home page](index.qmd) has the schedule, meeting
-logistics, and how the course runs.
+Tuesdays and Thursdays 3:10–5:00 PM, Veihmeyer Hall 212
+
+**Dr. Grey Monroe** — office hours Thursdays 10:00–11:00 AM, Robbins Hall
+262A, or by appointment ([zoom](https://ucdavis.zoom.us/my/greymonroe)) ·
+gmonroe@ucdavis.edu (please allow 24 hours for reply)
+
+**TA: Alice Pierce** — avpierce@ucdavis.edu · office hours by appointment
+(announced week 1). Alice is a PhD candidate in the Monroe Lab and Plant
+Biology Graduate Program, and a familiar face in this course: she was the
+PLS 152 TA in 2022.
+
+## Course information
+
+The primary aim of this course is to help you develop a solid foundation in
+basic genetics so that you will be able to apply this knowledge to understand
+new and emerging discoveries in the field and evaluate how these discoveries
+have shaped our understanding of plant evolution, ecology and can be used for
+crop improvement.
+
+The course material ranges from classical (transmission) genetics to plant
+molecular and quantitative genetics, genomics, and epigenetics. Because we
+will cover a broad range of topics, this will limit the extent to which we
+can explore any particular field in depth.
+
+One theme throughout the course is how plant biology and genetics are
+interconnected. Another theme is that the development of new molecular tools
+has significantly advanced our understanding of genetic mechanisms. They have
+provided new ways to speed up plant breeding, which is essential to ensuring
+global food security.
+
+This course emphasizes critical thinking, problem-solving and the synthesis
+of information: grades are not determined by memorizing facts. The
+prerequisite for PLS 152 is BIS 2A, and the class is taught accordingly.
+Students who have mastered BIS 101 may find some of the initial lectures
+basic, but this changes as the quarter progresses, and the core concepts
+become more complex. There are many additional opportunities for advanced
+students to be challenged at every stage of the course.
+
+We may have to reframe our goals depending on how much progress we make, but
+wherever possible, we will take your perspective into account.
+
+## Course format: in person
+
+PLS 152 is taught in person in Veihmeyer Hall 212, Tuesdays and Thursdays
+from 3:10 to 5:00 PM. Although the registrar lists a lecture plus a separate
+20-minute discussion, we meet as one continuous block with a short break in
+the middle — plan for the full 3:10–5:00.
+
+I hope you actively participate in this course because I have found it is the
+best way to engage you in learning. Slides are posted on this website before
+each class, but some of the best days of the quarter only happen in person: a
+greenhouse tour, guest panels, in-class activities, and discussions. If
+something prevents you from attending, contact me and we will work out how
+you can keep making progress.
+
+**Where things live:** all course materials — schedule, slides, readings,
+assignment details — are on this website. Canvas is where you submit things
+(quizzes, reflections, assignments) and where every deadline is listed.
+
+## Learning outcomes
+
+By the end of this course, students should be able to:
+
+- Explain various ways in which plant biology affects genetic diversity and
+  inheritance (dominance, meiosis, recombination, mating systems, mutation)
+  and how genetic variation affects plant biology (how variation in DNA
+  sequence affects plant traits).
+- Interpret results from plant genetics research, including reading primary
+  research articles.
+- Apply knowledge of plant genetics to real-world problems in agriculture.
+- Appreciate plant genetics memes.
+
+## Prerequisites and materials
+
+Students should have completed BIS 2A or an equivalent course covering the
+fundamental concepts of molecular biology and genetics. Students looking to
+refresh their knowledge are encouraged to use freely available resources,
+including non-conventional ones such as YouTube and Wikipedia. If you come
+across a concept or term that you don't know, sometimes a simple Google
+search can be really effective.
+
+There is no required textbook. Assignments are submitted via Canvas. Each
+week pairs a primary research article with the lecture material (see
+[readings](readings.qmd)) — quiz questions draw on them, and learning to read
+real papers is part of the point. Bring a laptop on Thursday October 15 (the
+library session and midterm work day).
+
+## Assignments and assessment
+
+**Class participation (10%):** a short reflection on each class, submitted on
+Canvas and graded for completion, due by 11:59 PM the same day. Two
+questions, every time: what interested you most today, and what would you
+benefit from a deeper explanation of? I read these, and they shape the
+following lectures.
+
+**Weekly assignments (30%):** low-stakes quizzes on Canvas covering the
+previous week's material, due Tuesdays at 3:10 PM, before class. Each quiz
+includes at least one question drawn from that week's research article. The
+lowest weekly assignment score is dropped automatically.
+
+**Midterm (30%):** a written mini literature review on a plant genetics topic
+of your choice — maximum 1,500 words, at least 5 peer-reviewed sources, due
+Tuesday November 10 at 3:10 PM. The full prompt, including guidance on
+choosing a topic, is on the [midterm page](midterm.qmd). The October 15
+library session launches your literature search, and the Topic Explorer
+(due October 22) helps you pick your topic with evidence instead of
+guesswork. Midterms are graded anonymously against a rubric posted with the
+assignment.
+
+**Capstone project (30%):** the final for this class is a group presentation
+(5–10 minutes) exploring a plant genetics topic — presentations run December
+1 and 3. Groups form from a preference survey (due October 29), with two
+short check-ins along the way. Grading is based on a rubric covering the
+presentation's content and quality, plus each member's individual
+contribution statement.
+
+**Extra credit (up to 2%):** memes! Post an original genetics meme to the
+class gallery by Friday December 11 — 1 point, or 2 if it's plant genetics
+specific. A proud course tradition.
+
+## Grading policy
+
+Your success in this class is important to me. We will all need
+accommodations because we all learn differently. If there are aspects of this
+course that prevent you from learning or exclude you, please let me know as
+soon as possible. Together we'll develop strategies to meet both your needs
+and the requirements of the course.
+
+**"Time Banks" late assignment policy:** students have a two-day grace period
+for one assignment or two one-day extensions for two different assignments.
+Additional late work is eligible for 60% of original points. Time Banks do
+not apply to the final project (a scheduled presentation) or to daily
+reflections — a reflection on today's class only makes sense today; the
+completion grading and drop-lowest rules are the built-in slack. For
+extraordinary circumstances (e.g. illness, emergency), please contact me as
+soon as possible to make arrangements.
+
+## Use of AI
+
+AI tools are part of how modern science gets done, and this course will teach
+you to use them: the October 15 library session covers AI research assistants
+for finding and understanding scientific literature. You are welcome to use
+AI to search for papers, get unstuck on a concept, test your understanding,
+or get feedback on your writing.
+
+What you submit must be your own work. Do not turn in writing generated by
+AI. For the midterm in particular: every citation must be a real paper that
+you actually found and read. AI tools regularly invent convincing-looking
+citations, and a fabricated citation in your midterm is an academic integrity
+violation, not a technology accident. You are accountable for everything you
+submit, whatever tools helped along the way.
+
+## Schedule
+
+The authoritative day-by-day schedule, with links to each week's materials,
+is on the [home page](index.qmd). All deadlines also appear in Canvas under
+Syllabus.
+
+## Academic integrity
+
+All members of the UC Davis community benefit from an environment of trust,
+honesty, fairness, respect, and responsibility. You are expected to present
+your own work and acknowledge the work of others in order to preserve the
+integrity of scholarship. This includes submitting your own original work,
+proper citation of all sources of information, keeping quiz content to
+yourself, and not submitting work completed for another class without prior
+permission. Violations of the Academic Integrity policy can result in
+dismissal from the university and a permanent notation on a student's
+transcript. For the full policy, see the Academic Misconduct page at the
+Division of Undergraduate Education.
+
+## Accessibility
+
+Talk with me as early in the quarter as possible to explain your needs and
+discuss any concerns. Solutions that benefit one student can help the whole
+class, so please let me know any questions or suggestions. Contact the
+Student Disability Center for more information and to request accommodations:
+(530) 752-3184 · sdc@ucdavis.edu · [sdc.ucdavis.edu](https://sdc.ucdavis.edu/).
+
+## Student wellness
+
+You deserve respect, and are encouraged to practice self-care so that you can
+remain focused and engaged; that might mean getting a drink of water, leaving
+to use the restroom, taking a moment to stretch, or doing something else you
+need to do to take care of yourself.
+
+College life can be overwhelming at times, but know that you are not alone if
+you're feeling stressed. Please remember to practice self-care and reach out
+for support if and when you need it. You can visit
+[Virtual UC Davis](https://virtual.ucdavis.edu/) to find resources related to
+health and well-being, academics, basic needs (food and housing) and more.
