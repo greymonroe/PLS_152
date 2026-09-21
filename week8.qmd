@@ -7,7 +7,7 @@ Bayer Woodland scientists)
 
 **Thu Nov 19 — Research projects in plant genetics** (UC Davis grad students)
 
-Due: **"Quiz 7"** (Tue 3:10 PM — final-project check-in #1 plus questions on
-the finding-genes, climate, and genomics lectures) · Reflections.
+Due: **"Quiz 7"** (Tue 3:10 PM — [capstone](capstone.qmd) check-in #1 plus
+questions on the finding-genes, climate, and genomics lectures) · Reflections.
 
 *Slides: posted here before class.*

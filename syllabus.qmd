@@ -118,7 +118,9 @@ assignment.
 1 and 3. Groups form from a preference survey (due October 29), with two
 short check-ins along the way. Grading is based on a rubric covering the
 presentation's content and quality, plus each member's individual
-contribution statement.
+contribution statement. Full details, timeline, and advice on the
+[capstone page](capstone.qmd) — worth reading early, since finding a topic
+and meeting potential groupmates both start well before November.
 
 **Extra credit (up to 2%):** memes! Post an original genetics meme to the
 class gallery by Friday December 11 — 1 point, or 2 if it's plant genetics

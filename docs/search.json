@@ -4,7 +4,7 @@
     "href": "week10.html",
     "title": "Week 10 — FINAL PRESENTATIONS",
     "section": "",
-    "text": "Tue Dec 1 — Final presentations, part 1\nThu Dec 3 — Final presentations, part 2\nDue Tue 3:10 PM, ALL groups (both presentation days): presentation file (one upload per group) · individual contributions statement (every student).\nExtra-credit memes are due Friday December 11 by 5:00 PM in the Canvas meme discussion. 1 point for an original genetics meme, 2 if it’s plant genetics specific."
+    "text": "Tue Dec 1 — Final presentations, part 1\nThu Dec 3 — Final presentations, part 2\nDue Tue 3:10 PM, ALL groups (both presentation days): presentation file (one upload per group) · individual contributions statement (every student). Details and rubric summary on the capstone page.\nExtra-credit memes are due Friday December 11 by 5:00 PM in the Canvas meme discussion. 1 point for an original genetics meme, 2 if it’s plant genetics specific."
   },
   {
     "objectID": "syllabus.html",
@@ -46,7 +46,7 @@
     "href": "syllabus.html#assignments-and-assessment",
     "title": "Syllabus",
     "section": "Assignments and assessment",
-    "text": "Assignments and assessment\nClass participation (10%): a short reflection on each class, submitted on Canvas and graded for completion, due by 11:59 PM the same day. Two questions, every time: what interested you most today, and what would you benefit from a deeper explanation of? I read these, and they shape the following lectures.\nWeekly assignments (30%): low-stakes quizzes on Canvas covering the previous week’s material, due Tuesdays at 3:10 PM, before class. Each quiz includes at least one question drawn from that week’s research article. The lowest weekly assignment score is dropped automatically.\nMidterm (30%): a written mini literature review on a plant genetics topic of your choice — maximum 1,500 words, at least 5 peer-reviewed sources, due Tuesday November 10 at 3:10 PM. The full prompt, including guidance on choosing a topic, is on the midterm page. The October 15 library session launches your literature search, and the Topic Explorer (due October 22) helps you pick your topic with evidence instead of guesswork. Midterms are graded anonymously against a rubric posted with the assignment.\nCapstone project (30%): the final for this class is a group presentation (5–10 minutes) exploring a plant genetics topic — presentations run December 1 and 3. Groups form from a preference survey (due October 29), with two short check-ins along the way. Grading is based on a rubric covering the presentation’s content and quality, plus each member’s individual contribution statement.\nExtra credit (up to 2%): memes! Post an original genetics meme to the class gallery by Friday December 11 — 1 point, or 2 if it’s plant genetics specific. A proud course tradition."
+    "text": "Assignments and assessment\nClass participation (10%): a short reflection on each class, submitted on Canvas and graded for completion, due by 11:59 PM the same day. Two questions, every time: what interested you most today, and what would you benefit from a deeper explanation of? I read these, and they shape the following lectures.\nWeekly assignments (30%): low-stakes quizzes on Canvas covering the previous week’s material, due Tuesdays at 3:10 PM, before class. Each quiz includes at least one question drawn from that week’s research article. The lowest weekly assignment score is dropped automatically.\nMidterm (30%): a written mini literature review on a plant genetics topic of your choice — maximum 1,500 words, at least 5 peer-reviewed sources, due Tuesday November 10 at 3:10 PM. The full prompt, including guidance on choosing a topic, is on the midterm page. The October 15 library session launches your literature search, and the Topic Explorer (due October 22) helps you pick your topic with evidence instead of guesswork. Midterms are graded anonymously against a rubric posted with the assignment.\nCapstone project (30%): the final for this class is a group presentation (5–10 minutes) exploring a plant genetics topic — presentations run December 1 and 3. Groups form from a preference survey (due October 29), with two short check-ins along the way. Grading is based on a rubric covering the presentation’s content and quality, plus each member’s individual contribution statement. Full details, timeline, and advice on the capstone page — worth reading early, since finding a topic and meeting potential groupmates both start well before November.\nExtra credit (up to 2%): memes! Post an original genetics meme to the class gallery by Friday December 11 — 1 point, or 2 if it’s plant genetics specific. A proud course tradition."
   },
   {
     "objectID": "syllabus.html#grading-policy",
@@ -119,11 +119,25 @@
     "text": "Tue Sep 29 — Transmission Genetics 1: Mendel’s Rules (Grey)\nThu Oct 1 — Transmission Genetics 2: Breaking Mendel’s Rules (Grey)\nDue: Reflections (11:59 PM each class day). Heads-up: Quiz 1 (transmission genetics) is due next Tue Oct 6, 3:10 PM.\nThis week’s reading: Bhattacharyya et al. 1990 — the actual gene behind Mendel’s wrinkled peas.\nSlides: posted here before class."
   },
   {
-    "objectID": "week9.html",
-    "href": "week9.html",
-    "title": "Week 9 — Group work & Thanksgiving",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Plant Genetics (PLS 152) — Fall 2026",
     "section": "",
-    "text": "Tue Nov 24 — no class meeting: groups work on final presentations\nThu Nov 26 — Thanksgiving, no class. Enjoy the break!\nDue: “Quiz 8” (Tue 3:10 PM — check-in #2: bullet summary of planned slides). Heads-up: presentation file + individual contributions statement due Tue Dec 1, 3:10 PM for ALL groups."
+    "text": "Instructor: Grey Monroe (gmonroe@ucdavis.edu) · TA: Alice Pierce\nMeetings: Tuesdays & Thursdays, 3:10–5:00 PM, Veihmeyer Hall 212 — one continuous block with a short break (the registrar’s separate 20-min “discussion” listing is an artifact; plan for the full 3:10–5:00).\nCRN: 42467 · 4 units · Prerequisite: BIS 2A\nHow the course runs: a short reflection after each class (due 11:59 PM same day), low-stakes quizzes due Tuesdays at 3:10 PM covering the previous week, a midterm paper (mini literature review), and a final group presentation (capstone). Quizzes and submissions happen on Canvas; all course materials live here."
+  },
+  {
+    "objectID": "index.html#schedule",
+    "href": "index.html#schedule",
+    "title": "Plant Genetics (PLS 152) — Fall 2026",
+    "section": "Schedule",
+    "text": "Schedule\n\n\n\nWk\nDate\nTopic\nDue at 3:10 PM\n\n\n\n\n0\nThu Sep 24\nIntro: Why plant genetics is awesome\n—\n\n\n1\nTue Sep 29\nTransmission Genetics 1: Mendel’s Rules\n—\n\n\n1\nThu Oct 1\nTransmission Genetics 2: Breaking Mendel’s Rules\n—\n\n\n2\nTue Oct 6\nMutations: the ultimate source of genetic variation\nQuiz 1\n\n\n2\nThu Oct 8\nHow does an allele cause a phenotype?\n—\n\n\n3\nTue Oct 13\nReproduction / Domestication: origins of crops\nQuiz 2\n\n\n3\nThu Oct 15\nMIDTERM LAUNCH: library session + work time — bring a laptop\n—\n\n\n4\nTue Oct 20\nQuantitative genetics (Dr. Mitch Feldmann)\nQuiz 3\n\n\n4\nThu Oct 22\nMars cacao greenhouse tour\nMidterm Topic Explorer\n\n\n5\nTue Oct 27\nForward genetics: mutant screens, ABC & MutMap\nQuiz 4\n\n\n5\nThu Oct 29\nGWAS/QTL mapping\nGroup preference survey\n\n\n6\nTue Nov 3\nFinding the genes: why it’s hard\nQuiz 5\n\n\n6\nThu Nov 5\nClimate adaptation: 400 years of research\n—\n\n\n7\nTue Nov 10\nSCOPE: student-led plant breeding\nMIDTERM\n\n\n7\nThu Nov 12\nThe long and short of genomics (Dr. Chaehee Lee)\n—\n\n\n8\nTue Nov 17\nProfessions in plant science (Bayer panel)\n“Quiz 7” check-in\n\n\n8\nThu Nov 19\nGrad student research talks\n—\n\n\n9\nTue Nov 24\nNo class: group work on presentations\n“Quiz 8” check-in\n\n\n9\nThu Nov 26\nThanksgiving — no class\n—\n\n\n10\nTue Dec 1\nFINAL presentations, part 1\nPresentation + contributions\n\n\n10\nThu Dec 3\nFINAL presentations, part 2\n—\n\n\nF\nFri Dec 11\n—\nExtra-credit memes, 5:00 PM\n\n\n\nA reflection on each class meeting is due 11:59 PM that same day (on Canvas)."
+  },
+  {
+    "objectID": "week8.html",
+    "href": "week8.html",
+    "title": "Week 8 — Careers & research",
+    "section": "",
+    "text": "Tue Nov 17 — Professions in plant science and genetics (guest panel: Bayer Woodland scientists)\nThu Nov 19 — Research projects in plant genetics (UC Davis grad students)\nDue: “Quiz 7” (Tue 3:10 PM — capstone check-in #1 plus questions on the finding-genes, climate, and genomics lectures) · Reflections.\nSlides: posted here before class."
   },
   {
     "objectID": "readings.html",
@@ -133,25 +147,46 @@
     "text": "Primary research articles paired with each week’s material. Each weekly quiz includes at least one question answerable from that week’s paper (abstract and figures). Access via the DOI links (on campus or through the UC Davis library VPN).\n\n\n\nWeek\nPaper\nDOI\n\n\n\n\n1\nBhattacharyya et al. (1990) Cell — Mendel’s wrinkled-seed pea trait is a transposon insertion in a starch-branching enzyme gene\n10.1016/0092-8674(90)90721-p\n\n\n2\nDavis et al. (2026) PNAS — Genome degradation in plant tissue culture (from our own Monroe Lab!)\n10.1073/pnas.2530182123\n\n\n3\nDoebley et al. (1997) Nature — The evolution of apical dominance in maize\n10.1038/386485a0\n\n\n4\nMotamayor et al. (2008) PLoS ONE — Geographic and genetic population differentiation of the chocolate tree\n10.1371/journal.pone.0003311\n\n\n5\nCoen & Meyerowitz (1991) Nature — The war of the whorls\n10.1038/353031a0\n\n\n5\nAtwell et al. (2010) Nature — GWAS of 107 phenotypes in Arabidopsis inbred lines\n10.1038/nature08800\n\n\n6–8\nÅgren et al. (2013) PNAS — Genetic mapping of adaptation reveals fitness tradeoffs in Arabidopsis\n10.1073/pnas.1316773110\n\n\n6–8\nLasky et al. (2016) Science Advances — Genome-environment associations in sorghum landraces\n10.1126/sciadv.1400218\n\n\n6–8\nZhang et al. (2022) Nature Communications — Climate change may outpace wheat breeding\n10.1038/s41467-022-33265-1"
   },
   {
-    "objectID": "week8.html",
-    "href": "week8.html",
-    "title": "Week 8 — Careers & research",
+    "objectID": "week9.html",
+    "href": "week9.html",
+    "title": "Week 9 — Group work & Thanksgiving",
     "section": "",
-    "text": "Tue Nov 17 — Professions in plant science and genetics (guest panel: Bayer Woodland scientists)\nThu Nov 19 — Research projects in plant genetics (UC Davis grad students)\nDue: “Quiz 7” (Tue 3:10 PM — final-project check-in #1 plus questions on the finding-genes, climate, and genomics lectures) · Reflections.\nSlides: posted here before class."
+    "text": "Tue Nov 24 — no class meeting: groups work on final presentations\nThu Nov 26 — Thanksgiving, no class. Enjoy the break!\nDue: “Quiz 8” (Tue 3:10 PM — check-in #2: bullet summary of planned slides). Heads-up: presentation file + individual contributions statement due Tue Dec 1, 3:10 PM for ALL groups."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Plant Genetics (PLS 152) — Fall 2026",
+    "objectID": "capstone.html",
+    "href": "capstone.html",
+    "title": "Capstone: Final Group Presentation",
     "section": "",
-    "text": "Instructor: Grey Monroe (gmonroe@ucdavis.edu) · TA: Alice Pierce\nMeetings: Tuesdays & Thursdays, 3:10–5:00 PM, Veihmeyer Hall 212 — one continuous block with a short break (the registrar’s separate 20-min “discussion” listing is an artifact; plan for the full 3:10–5:00).\nCRN: 42467 · 4 units · Prerequisite: BIS 2A\nHow the course runs: a short reflection after each class (due 11:59 PM same day), low-stakes quizzes due Tuesdays at 3:10 PM covering the previous week, a midterm paper (mini literature review), and a final group presentation. Quizzes and submissions happen on Canvas; all course materials live here."
+    "text": "The final for this class is a group presentation (5–10 minutes) exploring a plant genetics topic of your group’s choice, presented in class on December 1 and 3. Groups are 4–5 people. It’s worth 30% of your grade (100 points, plus up to 5 extra credit)."
   },
   {
-    "objectID": "index.html#schedule",
-    "href": "index.html#schedule",
-    "title": "Plant Genetics (PLS 152) — Fall 2026",
-    "section": "Schedule",
-    "text": "Schedule\n\n\n\nWk\nDate\nTopic\nDue at 3:10 PM\n\n\n\n\n0\nThu Sep 24\nIntro: Why plant genetics is awesome\n—\n\n\n1\nTue Sep 29\nTransmission Genetics 1: Mendel’s Rules\n—\n\n\n1\nThu Oct 1\nTransmission Genetics 2: Breaking Mendel’s Rules\n—\n\n\n2\nTue Oct 6\nMutations: the ultimate source of genetic variation\nQuiz 1\n\n\n2\nThu Oct 8\nHow does an allele cause a phenotype?\n—\n\n\n3\nTue Oct 13\nReproduction / Domestication: origins of crops\nQuiz 2\n\n\n3\nThu Oct 15\nMIDTERM LAUNCH: library session + work time — bring a laptop\n—\n\n\n4\nTue Oct 20\nQuantitative genetics (Dr. Mitch Feldmann)\nQuiz 3\n\n\n4\nThu Oct 22\nMars cacao greenhouse tour\nMidterm Topic Explorer\n\n\n5\nTue Oct 27\nForward genetics: mutant screens, ABC & MutMap\nQuiz 4\n\n\n5\nThu Oct 29\nGWAS/QTL mapping\nGroup preference survey\n\n\n6\nTue Nov 3\nFinding the genes: why it’s hard\nQuiz 5\n\n\n6\nThu Nov 5\nClimate adaptation: 400 years of research\n—\n\n\n7\nTue Nov 10\nSCOPE: student-led plant breeding\nMIDTERM\n\n\n7\nThu Nov 12\nThe long and short of genomics (Dr. Chaehee Lee)\n—\n\n\n8\nTue Nov 17\nProfessions in plant science (Bayer panel)\n“Quiz 7” check-in\n\n\n8\nThu Nov 19\nGrad student research talks\n—\n\n\n9\nTue Nov 24\nNo class: group work on presentations\n“Quiz 8” check-in\n\n\n9\nThu Nov 26\nThanksgiving — no class\n—\n\n\n10\nTue Dec 1\nFINAL presentations, part 1\nPresentation + contributions\n\n\n10\nThu Dec 3\nFINAL presentations, part 2\n—\n\n\nF\nFri Dec 11\n—\nExtra-credit memes, 5:00 PM\n\n\n\nA reflection on each class meeting is due 11:59 PM that same day (on Canvas)."
+    "objectID": "capstone.html#start-thinking-about-it-now",
+    "href": "capstone.html#start-thinking-about-it-now",
+    "title": "Capstone: Final Group Presentation",
+    "section": "Start thinking about it now",
+    "text": "Start thinking about it now\nThe capstone comes at the end, but the best presentations start much earlier — in two ways.\nThe topic. Ideas will come at you all quarter: a lecture that hooks you, a reading, the cacao tour, a guest speaker, something you dig up researching your midterm. When something makes you think “I want to know more about that,” write it down — that list is where good capstone topics come from. Like the midterm, focused beats broad, and the same three doors apply: a problem plant genetics can help solve, an open question, or how a genetic technology works.\nThe group. This is a group project, which makes the class itself part of the assignment: sit next to someone new, talk during the break, compare answers during in-class activities. The people you meet in the first weeks may well become your group — and groups that form around a shared interest tend to have more fun with this. If you’d rather be assigned to a group, that’s completely fine too; the preference survey (due Thu Oct 29) asks which you want."
+  },
+  {
+    "objectID": "capstone.html#timeline",
+    "href": "capstone.html#timeline",
+    "title": "Capstone: Final Group Presentation",
+    "section": "Timeline",
+    "text": "Timeline\n\n\n\n\n\n\n\nWhen\nWhat\n\n\n\n\nThu Oct 29, 3:10 PM\nGroup preference survey on Canvas: form your own group (4–5 people) or ask to be assigned, plus topics you’re interested in\n\n\nEarly Nov\nGroups posted\n\n\nTue Nov 17, 3:10 PM\nCheck-in #1 (part of “Quiz 7”): group members, topic, one useful citation, and what you personally plan to contribute\n\n\nTue Nov 24\nNo class meeting — the block is yours for group work. Check-in #2 due 3:10 PM: bullet summary of your planned slides, and anything you’re stuck on\n\n\nTue Dec 1, 3:10 PM\nALL groups (both presentation days): presentation file uploaded to Canvas (PDF or PPTX, one upload per group) + each student’s individual contributions statement\n\n\nTue Dec 1 + Thu Dec 3\nPresentations in class"
+  },
+  {
+    "objectID": "capstone.html#what-you-submit",
+    "href": "capstone.html#what-you-submit",
+    "title": "Capstone: Final Group Presentation",
+    "section": "What you submit",
+    "text": "What you submit\n\nPresentation file (PDF or PPTX) — one upload per group on Canvas; anyone in the group can submit and it counts for everyone. Due Dec 1 at 3:10 PM regardless of which day your group presents.\nIndividual contributions statement — every student submits their own short, confidential statement: what you contributed (slides, research, figures, organizing, presenting sections…) and how the work was divided. A few sentences is plenty. Only the teaching team sees it; it’s how we make sure credit lands where the work happened."
+  },
+  {
+    "objectID": "capstone.html#how-its-graded",
+    "href": "capstone.html#how-its-graded",
+    "title": "Capstone: Final Group Presentation",
+    "section": "How it’s graded",
+    "text": "How it’s graded\nThe full rubric is attached to the Canvas assignment. The group grade covers depth of content, accuracy, use of references (at least 5 citations on your slides), introduction / body / conclusion structure, clarity, slide design, collaboration, and time management (stay in the 5–10 minute window). Two pieces are graded per student: your individual contribution (from your statement) and audience engagement — being present and engaged during the other groups’ presentations, including asking at least one thoughtful question across the two days. Up to 5 extra credit points for genuinely creative insights or framings."
   },
   {
     "objectID": "week0.html",
@@ -207,6 +242,6 @@
     "href": "week5.html",
     "title": "Week 5 — Gene discovery I",
     "section": "",
-    "text": "Tue Oct 27 — Forward genetics: mutant screens, the ABC model & MutMap (Grey)\nThu Oct 29 — GWAS/QTL mapping: genetics to phenotypes at large scales (Grey)\nDue: Quiz 4 (Tue 3:10 PM) · Group preference survey (Thu 3:10 PM — it decides your final-project group, don’t skip it) · Reflections.\nSlides: posted here before class."
+    "text": "Tue Oct 27 — Forward genetics: mutant screens, the ABC model & MutMap (Grey)\nThu Oct 29 — GWAS/QTL mapping: genetics to phenotypes at large scales (Grey)\nDue: Quiz 4 (Tue 3:10 PM) · Group preference survey (Thu 3:10 PM — it decides your capstone group, don’t skip it) · Reflections.\nSlides: posted here before class."
   }
 ]

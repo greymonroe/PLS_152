@@ -26,6 +26,8 @@ website:
           - href: week10.qmd
       - href: midterm.qmd
         text: Midterm
+      - href: capstone.qmd
+        text: Capstone
       - href: readings.qmd
         text: Readings
       - href: syllabus.qmd

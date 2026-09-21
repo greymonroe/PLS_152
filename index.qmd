@@ -13,7 +13,8 @@ continuous block with a short break (the registrar's separate 20-min
 How the course runs: a short **reflection** after each class (due 11:59 PM
 same day), **low-stakes quizzes** due Tuesdays at 3:10 PM covering the
 previous week, a **midterm paper** ([mini literature review](midterm.qmd)),
-and a **final group presentation**. Quizzes and submissions happen on Canvas;
+and a **final group presentation** ([capstone](capstone.qmd)). Quizzes and
+submissions happen on Canvas;
 all course materials live here.
 
 ## Schedule
