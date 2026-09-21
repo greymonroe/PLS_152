@@ -102,7 +102,6 @@ const ANNOUNCEMENTS = [
 ];
 
 (async () => {
-  if (COURSE_ID === "1112484") { alert("Set COURSE_ID first!"); return; }
   const csrf = decodeURIComponent(document.cookie.match(/_csrf_token=([^;]+)/)[1]);
   const now = new Date();
   for (const a of ANNOUNCEMENTS) {
