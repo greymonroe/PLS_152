@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - announce.js
 
 website:
   title: "PLS 152 — Plant Genetics"
