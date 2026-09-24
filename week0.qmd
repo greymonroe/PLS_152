@@ -10,4 +10,4 @@ Get oriented: read the [syllabus](syllabus.qmd) and skim the
 [midterm prompt](midterm.qmd) — yes, already. The topic is your choice and it
 pays to start noticing what interests you.
 
-*Slides: posted here before class.*
+Slides: [Sep 24 — Intro](slides/2026-09-24_intro.pdf)
