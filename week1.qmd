@@ -12,4 +12,6 @@ genetics) is due next Tue Oct 6, 3:10 PM.
 This week's reading: [Bhattacharyya et al. 1990](readings.qmd) — the actual
 gene behind Mendel's wrinkled peas.
 
-Slides: [Sep 29 — Transmission Genetics 1](slides/2026-09-29_transmission-genetics-1.pdf) · *Oct 1 slides posted here before class.*
+Slides: [Sep 29 — Transmission Genetics 1](slides/2026-09-29_transmission-genetics-1.pdf) · [Oct 1 — Transmission Genetics 2](slides/2026-10-01_transmission-genetics-2.pdf)
+
+Interactive: [The recombination game](https://greymonroe.github.io/recombination-game/) (make crosses, count recombinants, build a linkage map)
