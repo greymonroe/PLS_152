@@ -2,11 +2,15 @@
 title: "Week 5 — Gene discovery I"
 ---
 
-**Tue Oct 27 — Forward genetics: mutant screens, the ABC model & MutMap** (Grey)
+**Tue Oct 27 — Forward genetics & QTL mapping: mutant screens, the ABC model, MutMap & mapping traits in crosses** (Grey)
 
-**Thu Oct 29 — GWAS/QTL mapping: genetics to phenotypes at large scales** (Grey)
+**Thu Oct 29 — NO CLASS: midterm work day.** We won't meet this day. Use the
+time to work on your [midterm paper](midterm.qmd) (due Tue Nov 10, 3:10 PM).
+No reflection is due. GWAS, which was scheduled for today, is now covered on
+Tue Nov 3 ([week 6](week6.qmd)).
 
-Due: **Quiz 4** (Tue 3:10 PM) · **Group preference survey** (Thu 3:10 PM — it
-decides your [capstone](capstone.qmd) group, don't skip it) · Reflections.
+Due: **Quiz 4** (Tue 3:10 PM) · **Group preference survey** (Thu 3:10 PM, online
+on Canvas — it decides your [capstone](capstone.qmd) group, don't skip it) ·
+Reflection (Tue).
 
 *Slides: posted here before class.*

@@ -30,9 +30,9 @@ all course materials live here.
 | 3 | Thu Oct 15 | [MIDTERM LAUNCH: library session + work time — **bring a laptop**](week3.qmd) | — |
 | 4 | Tue Oct 20 | [Quantitative genetics (Dr. Mitch Feldmann)](week4.qmd) | Quiz 3 |
 | 4 | Thu Oct 22 | [Mars cacao greenhouse tour](week4.qmd) | Midterm Topic Explorer |
-| 5 | Tue Oct 27 | [Forward genetics: mutant screens, ABC & MutMap](week5.qmd) | Quiz 4 |
-| 5 | Thu Oct 29 | [GWAS/QTL mapping](week5.qmd) | Group preference survey |
-| 6 | Tue Nov 3 | [Finding the genes: why it's hard](week6.qmd) | Quiz 5 |
+| 5 | Tue Oct 27 | [Forward genetics & QTL mapping: mutant screens, ABC & MutMap](week5.qmd) | Quiz 4 |
+| 5 | Thu Oct 29 | [**No class:** midterm work day](week5.qmd) | Group preference survey (online) |
+| 6 | Tue Nov 3 | [GWAS & finding the genes: why it's hard](week6.qmd) | Quiz 5 |
 | 6 | Thu Nov 5 | [Climate adaptation: 400 years of research](week6.qmd) | — |
 | 7 | Tue Nov 10 | [SCOPE: student-led plant breeding](week7.qmd) | **MIDTERM** |
 | 7 | Thu Nov 12 | [The long and short of genomics (Dr. Chaehee Lee)](week7.qmd) | — |

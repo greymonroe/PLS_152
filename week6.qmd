@@ -2,7 +2,7 @@
 title: "Week 6 — Gene discovery II & climate adaptation"
 ---
 
-**Tue Nov 3 — Finding the genes: why causal genes are hard to find** (Grey)
+**Tue Nov 3 — GWAS & finding the genes: why causal genes are hard to find** (Grey)
 
 **Thu Nov 5 — Climate adaptation: a 400 year history of research** (Grey)
 
