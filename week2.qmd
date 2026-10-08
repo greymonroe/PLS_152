@@ -11,4 +11,4 @@ Due: **Quiz 1** (Tue 3:10 PM) · Reflections (11:59 PM each class day).
 This week's reading: [Davis et al. 2026 (PNAS)](readings.qmd) — genome
 degradation in plant tissue culture, from our own Monroe Lab. It's on Quiz 2.
 
-Slides: [Oct 6 — Mutation](slides/2026-10-06_mutation.pdf) · *Oct 8 slides posted here before class.*
+Slides: [Oct 6 — Mutation](slides/2026-10-06_mutation.pdf) · [Oct 8 — Gene expression](slides/2026-10-08_alleles-expression.pdf)
