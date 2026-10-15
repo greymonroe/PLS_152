@@ -4,6 +4,7 @@ project:
   resources:
     - announce.js
     - slides/
+    - files/
 
 website:
   title: "PLS 152 — Plant Genetics"
