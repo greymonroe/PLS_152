@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Population Genetics Simulators</title>
+<style>
+:root{
+  --bg:#ffffff; --panel:#f6f7f8; --ink:#1b1d1f; --muted:#5f6670; --line:#d9dde2;
+  --accent:#2563c9; --accent-ink:#ffffff; --trace:#2563c9; --ghost:rgba(37,99,201,.18);
+  --gold:#F6C15B; --star:#E65100; --chrom:#9aa1a9; --bad:#b3261e; --good:#1d7a3a;
+  --dot1:#3a7bd5; --dot2:#8e44ad; --dot3:#16a085;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121417; --panel:#1c1f24; --ink:#e8eaed; --muted:#a0a7b0; --line:#343a42;
+    --accent:#6ea0f0; --accent-ink:#0d1117; --trace:#7fb0ff; --ghost:rgba(127,176,255,.22);
+    --chrom:#6b737c; --bad:#ff8a80; --good:#7bd88f;
+    --dot1:#7fb0ff; --dot2:#c39bdb; --dot3:#5fd1b8;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121417; --panel:#1c1f24; --ink:#e8eaed; --muted:#a0a7b0; --line:#343a42;
+  --accent:#6ea0f0; --accent-ink:#0d1117; --trace:#7fb0ff; --ghost:rgba(127,176,255,.22);
+  --chrom:#6b737c; --bad:#ff8a80; --good:#7bd88f;
+  --dot1:#7fb0ff; --dot2:#c39bdb; --dot3:#5fd1b8;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;line-height:1.45;-webkit-text-size-adjust:100%}
+.wrap{max-width:1100px;margin:0 auto;padding:16px}
+h1{font-size:1.6rem;margin:.2em 0 .3em}
+h2{font-size:1.05rem;margin:0 0 .5em}
+p{margin:.4em 0}
+.lede{color:var(--muted);font-size:.95rem}
+.grid{display:grid;grid-template-columns:340px 1fr;gap:16px;align-items:start}
+@media (max-width:700px){.grid{grid-template-columns:1fr}}
+.grid>div{min-width:0}
+.plot canvas{max-width:100%}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;min-width:0}
+.ctrl{margin-bottom:14px}
+.ctrl label{display:block;font-weight:600;font-size:.95rem}
+.ctrl label .val{float:right}
+.ctrl .val{font-variant-numeric:tabular-nums;color:var(--accent)}
+.ctrl small{display:block;color:var(--muted);font-size:.8rem}
+input[type=range]{width:100%;height:36px;margin:2px 0;accent-color:var(--accent)}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+button{font:inherit;font-weight:600;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:10px 14px;min-height:44px;cursor:pointer;flex:1 1 auto}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button:disabled{opacity:.5;cursor:default}
+.toggle{display:flex;align-items:center;gap:10px;min-height:40px;font-size:.92rem}
+.toggle input{width:22px;height:22px;accent-color:var(--accent)}
+.status{margin-top:10px;font-size:.92rem;min-height:2.6em}
+.status.bad{color:var(--bad);font-weight:600}
+.status.good{color:var(--good);font-weight:600}
+.readouts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.ro{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;min-width:0}
+.ro .num{font-size:1.7rem;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
+.ro .lab{font-size:.78rem;color:var(--muted)}
+.ro .sub{font-size:.75rem;color:var(--muted)}
+@media (max-width:420px){.ro .num{font-size:1.35rem}}
+.plot{margin-bottom:16px}
+.plot canvas{display:block;width:100%;background:var(--bg);border-radius:8px}
+.cap{font-size:.85rem;color:var(--muted);margin-top:6px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.8rem;color:var(--muted);margin-top:4px}
+.sw{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-2px;margin-right:4px}
+table{width:100%;border-collapse:collapse;font-size:.88rem;font-variant-numeric:tabular-nums}
+th,td{padding:6px 4px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+.tablewrap{overflow-x:auto}
+.try ol{margin:.3em 0 0;padding-left:1.2em}
+.try li{margin:.3em 0}
+footer{color:var(--muted);font-size:.85rem;text-align:center;padding:24px 0 8px}
+
+:root{--wild:#1E88E5;--crop:#F57C00;--harm:#4E342E}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--harm:#bcaaa4}}
+:root[data-theme="dark"]{--harm:#bcaaa4}
+.ro .num.pair{font-size:1.15rem}
+.w{color:var(--wild)} .c{color:var(--crop)}
+.readouts.five{grid-template-columns:repeat(3,1fr)}
+@media (max-width:700px){.readouts.five{grid-template-columns:repeat(2,1fr)}}
+[hidden]{display:none!important}
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px);margin-top:calc(-1 * env(safe-area-inset-top,0px))}
+.tabs .in{max-width:1100px;margin:0 auto;padding:8px 16px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tabs button{min-height:52px;font-size:1.05rem;border-radius:12px;background:var(--panel)}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="tabs" role="tablist"><div class="in">
+  <button role="tab" id="tabbtn-sweep" aria-controls="tab-sweep" aria-selected="true" data-tab="sweep">Selective sweep</button>
+  <button role="tab" id="tabbtn-bottleneck" aria-controls="tab-bottleneck" aria-selected="false" data-tab="bottleneck">Bottleneck</button>
+</div></nav>
+<div class="wrap">
+<section id="tab-sweep" role="tabpanel">
+  <h1>Selective Sweep Simulator</h1>
+  <p class="lede">A new beneficial mutation appears on one chromosome. As it spreads, it drags along the DNA around it and wipes out nearby genetic variation. That is a <b>selective sweep</b>.</p>
+
+  <div class="grid">
+    <div>
+      <div class="card">
+        <div class="ctrl">
+          <label for="sw-s">Selection coefficient <i>s</i> <span class="val" id="sw-sVal"></span></label>
+          <input type="range" id="sw-s" min="0" max="20" step="1" value="10">
+          <small>How much better the mutation is: carriers leave (1 + s) times as many offspring.</small>
+        </div>
+        <div class="ctrl">
+          <label for="sw-r">Recombination <i>R</i> <span class="val" id="sw-rVal"></span></label>
+          <input type="range" id="sw-r" min="0" max="50" step="1" value="5">
+          <small>Expected crossovers per chromosome per generation across the whole region (Morgans).</small>
+        </div>
+        <div class="btns">
+          <button class="primary" id="sw-run">Run</button>
+          <button id="sw-reset">Reset</button>
+          <button id="sw-speed">Speed: animated</button>
+        </div>
+        <label class="toggle"><input type="checkbox" id="sw-auto" checked><span> Start again automatically if lost</span></label>
+        <label class="toggle"><input type="checkbox" id="sw-seed"><span> Same random seed every run</span></label>
+        <div class="status" id="sw-status">Press <b>Run</b> to release one beneficial mutation.</div>
+        <button id="sw-retry" style="display:none;width:100%">Try again</button>
+      </div>
+
+      <div class="card try" style="margin-top:16px">
+        <h2>What to try</h2>
+        <ol>
+          <li>Double <i>s</i>. What happens to the time to fixation and the sweep width?</li>
+          <li>Set <i>R</i> = 0, then set <i>R</i> high. How does the valley change?</li>
+          <li>Run the same settings 5 times. How variable are the results?</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <h2>The model</h2>
+        <p style="font-size:.9rem">A population of 400 chromosomes reproduces each generation; parents are picked at random, but carriers of the beneficial allele are (1 + <i>s</i>) times more likely to be picked. Each new chromosome is stitched together from two parents, switching parents at a random number of crossover points (average <i>R</i>) placed anywhere along the region. The region holds 200 common neutral variants that start out evenly diverse, with the beneficial mutation in the middle. Diversity at a site is the chance that two random chromosomes carry different versions of it.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="readouts">
+        <div class="ro"><div class="num" id="sw-roT">–</div><div class="lab">generations to fixation</div></div>
+        <div class="ro"><div class="num" id="sw-roD">–</div><div class="lab">diversity drop at the selected site</div></div>
+        <div class="ro"><div class="num" id="sw-roW">–</div><div class="lab">sweep width (% of region)</div><div class="sub" id="sw-roWkb"></div></div>
+      </div>
+
+      <div class="card plot">
+        <h2>Beneficial allele frequency</h2>
+        <canvas id="sw-cFreq"></canvas>
+        <div class="cap">Share of chromosomes carrying the beneficial allele (up) in each generation (across). Faint lines are earlier runs.</div>
+      </div>
+
+      <div class="card plot">
+        <h2>Diversity along the chromosome</h2>
+        <canvas id="sw-cDiv"></canvas>
+        <div class="cap">Diversity at each position (across), relative to the start (dashed line = 1). The star is the beneficial mutation; the bracket marks where diversity fell below half.</div>
+      </div>
+
+      <div class="card plot">
+        <h2>A sample of 16 chromosomes</h2>
+        <canvas id="sw-cChr"></canvas>
+        <div class="legend"><span><span class="sw" style="background:var(--gold)"></span>DNA inherited from the original mutant chromosome</span><span><span class="sw" style="background:var(--star)"></span>beneficial allele</span><span><span class="sw" style="background:var(--dot1)"></span>neutral variants</span></div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h2 style="margin:0">Run history</h2><button id="sw-clear" style="flex:0 0 auto">Clear history</button></div>
+        <div class="tablewrap"><table>
+          <thead><tr><th>#</th><th><i>s</i></th><th><i>R</i></th><th>Gens</th><th>Div. drop</th><th>Width</th><th>Lost first</th></tr></thead>
+          <tbody id="sw-hist"></tbody>
+        </table></div>
+        <p class="cap">Width in kb assumes the region is 500 kb long (an assumption for illustration).</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="tab-bottleneck" role="tabpanel" hidden>
+  <h1>Bottleneck Simulator</h1>
+  <p class="lede">Two populations start out identical. The <b style="color:var(--wild)">wild</b> one stays large. The <b style="color:var(--crop)">crop</b> one is founded by a few plants, stays small for a while, then grows back. What does the bottleneck do to diversity, and to harmful mutations?</p>
+
+  <div class="grid">
+    <div>
+      <div class="card">
+        <div class="ctrl"><label for="bn-F">Founders <i>F</i> <span class="val" id="bn-FVal"></span></label>
+          <input type="range" id="bn-F" min="0" max="13" step="1" value="5"><small>Plants that start the crop population.</small></div>
+        <div class="ctrl"><label for="bn-D">Bottleneck length <i>D</i> <span class="val" id="bn-DVal"></span></label>
+          <input type="range" id="bn-D" min="1" max="50" step="1" value="10"><small>Generations the crop stays at <i>F</i> plants before recovering.</small></div>
+        <div class="ctrl"><label for="bn-sd">Harmful mutation strength <i>s</i><sub>d</sub> <span class="val" id="bn-sdVal"></span></label>
+          <input type="range" id="bn-sd" min="0" max="8" step="1" value="4"><small>Fitness cost of carrying two copies.</small></div>
+        <div class="ctrl"><label for="bn-U">Mutation rate <i>U</i> <span class="val" id="bn-UVal"></span></label>
+          <input type="range" id="bn-U" min="1" max="10" step="1" value="5"><small>New harmful mutations per gamete per generation.</small></div>
+        <label class="toggle"><input type="checkbox" id="bn-rec"><span> Fully recessive harmful mutations (<i>h</i> = 0; otherwise <i>h</i> = 0.25)</span></label>
+        <div class="btns">
+          <button class="primary" id="bn-run">Run</button>
+          <button id="bn-reset">Reset</button>
+          <button id="bn-speed">Speed: animated</button>
+        </div>
+        <label class="toggle"><input type="checkbox" id="bn-seed"><span> Same random seed every run</span></label>
+        <div class="status" id="bn-status">Large size <i>N</i> = 500 plants. Run lasts 200 generations.</div>
+      </div>
+
+      <div class="card try" style="margin-top:16px">
+        <h2>What to try</h2>
+        <ol>
+          <li>Run a sweep and a bottleneck. How do the two diversity plots differ in shape?</li>
+          <li>2 founders vs 50 founders.</li>
+          <li>A short bottleneck (2 generations) vs a long one (40).</li>
+          <li>Weak (0.001) vs strong (0.1) harmful mutations. Weak ones drift up in a small population; strong ones get purged anyway.</li>
+        </ol>
+        <p style="font-size:.92rem"><b>The point:</b> in a small population, chance outweighs weak selection, so mildly harmful mutations can rise and even fix.</p>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <h2>The model</h2>
+        <p style="font-size:.9rem">Each generation, every plant is replaced by offspring of two parents; healthier parents are more likely to be picked. Each parent passes on one of its two copies of every harmful site, at random (they are unlinked). Every new gamete also picks up new harmful mutations (on average <i>U</i>), each at a new site; a plant with one copy loses <i>h</i>·<i>s</i><sub>d</sub> of its fitness, with two copies <i>s</i><sub>d</sub>, and costs multiply across sites. Before generation 0 the large population runs 200 generations so it already carries a realistic set of rare harmful mutations. The crop is then founded by <i>F</i> plants drawn from it.</p>
+        <p style="font-size:.9rem">Diversity is the chance that two random copies of a neutral site differ. The chromosome carries 200 common neutral variants spread evenly along it (about one crossover per chromosome per generation), set up the same way as on the sweep tab. Even the &ldquo;large&rdquo; population drifts a little: 500 plants is small next to a real wild species.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="readouts five">
+        <div class="ro"><div class="num pair" id="bn-roH">–</div><div class="lab">genome-wide diversity lost</div></div>
+        <div class="ro"><div class="num pair" id="bn-roA">–</div><div class="lab">chromosome below half its starting diversity</div></div>
+        <div class="ro"><div class="num pair" id="bn-roX">–</div><div class="lab">harmful mutations fixed</div></div>
+        <div class="ro"><div class="num pair" id="bn-roL">–</div><div class="lab">harmful alleles per plant</div></div>
+        <div class="ro"><div class="num pair" id="bn-roW">–</div><div class="lab">fitness (mutation-free = 1)</div></div>
+        <div class="ro"><div class="num pair" id="bn-roI">–</div><div class="lab">inbreeding depression (selfing)</div></div>
+      </div>
+      <div class="legend" style="margin:-8px 0 12px"><span><span class="sw" style="background:var(--wild)"></span>Wild (stays large)</span><span><span class="sw" style="background:var(--crop)"></span>Crop (bottleneck)</span></div>
+
+      <div class="card plot"><h2>Population size</h2><canvas id="bn-cN"></canvas>
+        <div class="cap">Number of plants (up, log scale) in each generation (across).</div></div>
+
+      <div class="card plot"><h2>Diversity along the chromosome</h2><canvas id="bn-cP"></canvas>
+        <div class="cap">Diversity at each position (across), relative to the start (dashed line = 1). A bottleneck lowers diversity everywhere along the chromosome. Compare the sweep tab, where it drops in one valley.</div></div>
+
+      <div class="card plot"><h2>Genome-wide diversity over time</h2><canvas id="bn-cH"></canvas>
+        <div class="cap">Diversity averaged over all 200 sites (chance two random copies differ), relative to the start (up), over generations (across).</div></div>
+
+      <div class="card plot"><h2>Harmful load</h2><canvas id="bn-cL"></canvas>
+        <div class="cap">Average number of harmful alleles per plant (up) over generations (across). Dashed lines: harmful mutations fixed (every plant carries two copies), right axis.</div></div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h2 style="margin:0">Run history</h2><button id="bn-clear" style="flex:0 0 auto">Clear history</button></div>
+        <div class="tablewrap"><table>
+          <thead><tr><th>#</th><th><i>F</i></th><th><i>D</i></th><th><i>s</i><sub>d</sub></th><th><i>U</i></th><th><i>h</i></th><th>Div. lost<br>W / C</th><th>Below half<br>W / C</th><th>Fixed<br>W / C</th><th>Load<br>W / C</th></tr></thead>
+          <tbody id="bn-hist"></tbody>
+        </table></div>
+      </div>
+    </div>
+  </div>
+</section>
+  <footer>PLS 152 Plant Genetics · UC Davis</footer>
+</div>
+<script>
+// SHARED-START
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+var cssv=function(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim();};
+function setupCanvas(c,h){var dpr=window.devicePixelRatio||1,w=c.clientWidth||c.parentNode.clientWidth;c.style.height=h+'px';c.width=Math.round(w*dpr);c.height=Math.round(h*dpr);var ctx=c.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);return {ctx:ctx,w:w,h:h};}
+// SHARED-END
+</script>
+<script>
+// SWEEP-SIM-START
+
+// Haploid Wright-Fisher sweep. Sites at positions (j+0.5)/L in [0,1]; beneficial site at 0.5.
+function createSim(opt){
+  var N=opt.N||400, L=opt.L||200, s=opt.s, R=opt.R, rng=opt.rng||Math.random;
+  var geno=new Uint8Array(N*L), anc=new Uint8Array(N*L), ben=new Uint8Array(N);
+  var g2=new Uint8Array(N*L), a2=new Uint8Array(N*L), b2=new Uint8Array(N);
+  var pos=new Float64Array(L); for(var j=0;j<L;j++)pos[j]=(j+0.5)/L;
+  var selIdx=L/2; // boundary: sites < L/2 are left of the selected site
+  // Standing variation: count of derived copies i drawn with weight 1/i (neutral spectrum),
+  // restricted to common variants (minor allele frequency >= 10%) so every site carries diversity.
+  var lo=Math.ceil(0.1*N), hi=N-lo, cw=[], tot=0;
+  for(var i=lo;i<=hi;i++){tot+=1/i;cw.push(tot);}
+  var idx=new Int32Array(N); for(i=0;i<N;i++)idx[i]=i;
+  for(j=0;j<L;j++){
+    var u=rng()*tot, k=0; while(cw[k]<u)k++; var c=lo+k;
+    for(i=N-1;i>0;i--){var m=Math.floor(rng()*(i+1)),t=idx[i];idx[i]=idx[m];idx[m]=t;}
+    for(i=0;i<c;i++)geno[idx[i]*L+j]=1;
+  }
+  var founder=Math.floor(rng()*N); ben[founder]=1;
+  for(j=0;j<L;j++)anc[founder*L+j]=1;
+  function divProfile(){
+    var d=new Float64Array(L);
+    for(var j=0;j<L;j++){var c=0;for(var i=0;i<N;i++)c+=geno[i*L+j];var p=c/N;d[j]=2*p*(1-p)*N/(N-1);}
+    return d;
+  }
+  var div0=divProfile();
+  var st={N:N,L:L,gen:0,count:1,freqs:[1/N],geno:geno,anc:anc,ben:ben,pos:pos,div0:div0,done:false,outcome:null};
+  var carriers=new Int32Array(N), non=new Int32Array(N), bps=[];
+  function poisson(lam){var Lx=Math.exp(-lam),k=0,p=1;do{k++;p*=rng();}while(p>Lx);return k-1;}
+  function pick(nc,nn,pc){return (nc>0&&(nn===0||rng()<pc))?carriers[Math.floor(rng()*nc)]:non[Math.floor(rng()*nn)];}
+  st.step=function(){
+    if(st.done)return;
+    var nc=0,nn=0;
+    for(var i=0;i<N;i++){if(ben[i])carriers[nc++]=i;else non[nn++]=i;}
+    var pc=nc*(1+s)/(nc*(1+s)+nn), cnt=0;
+    for(i=0;i<N;i++){
+      var A=pick(nc,nn,pc), B=pick(nc,nn,pc), o=i*L;
+      var k=R>0?poisson(R):0;
+      if(k===0){
+        g2.set(geno.subarray(A*L,A*L+L),o); a2.set(anc.subarray(A*L,A*L+L),o); b2[i]=ben[A];
+      }else{
+        bps.length=0; for(var q=0;q<k;q++)bps.push(rng()); bps.sort();
+        var par=A, start=0, bsite=-1;
+        for(q=0;q<=k;q++){
+          var x=q<k?bps[q]:1.0001;
+          var end=Math.min(L,Math.max(start,Math.round(x*L))); // sites with pos < x
+          if(end>start){g2.set(geno.subarray(par*L+start,par*L+end),o+start);a2.set(anc.subarray(par*L+start,par*L+end),o+start);}
+          if(bsite<0&&x>0.5)bsite=par;
+          start=end; par=(par===A)?B:A;
+        }
+        b2[i]=ben[bsite];
+      }
+      cnt+=b2[i];
+    }
+    var t;t=geno;geno=g2;g2=t;t=anc;anc=a2;a2=t;t=ben;ben=b2;b2=t;
+    st.geno=geno;st.anc=anc;st.ben=ben;
+    st.gen++;st.count=cnt;st.freqs.push(cnt/N);
+    if(cnt===N){st.done=true;st.outcome='fixed';}
+    else if(cnt===0){st.done=true;st.outcome='lost';}
+    else if(st.gen>=(opt.cap||3000)){st.done=true;st.outcome='cap';}
+  };
+  st.divProfile=divProfile;
+  return st;
+}
+
+// Smooth diversity over a sliding window of +-W sites, relative to the starting profile.
+function relDiversity(div,div0,W){
+  var L=div.length,out=new Float64Array(L);W=W||6;
+  for(var j=0;j<L;j++){var a=0,b=0;for(var k=Math.max(0,j-W);k<=Math.min(L-1,j+W);k++){a+=div[k];b+=div0[k];}out[j]=b>0?a/b:1;}
+  return out;
+}
+// Metrics: drop at selected site (mean of the 2 sites flanking the centre) and width of the
+// contiguous stretch around the centre where relative diversity < 0.5.
+function sweepMetrics(rel){
+  var L=rel.length,c=L/2,center=(rel[c-1]+rel[c])/2;
+  var l=c,r=c-1;
+  if(rel[c-1]<0.5||rel[c]<0.5){
+    l=c-1;while(l>0&&rel[l-1]<0.5)l--;
+    r=c;while(r<L-1&&rel[r+1]<0.5)r++;
+    if(rel[c-1]>=0.5)l=c; if(rel[c]>=0.5)r=c-1;
+  }
+  var width=Math.max(0,r-l+1)/L;
+  return {drop:1-center,width:width,left:l/L,right:(r+1)/L};
+}
+// SWEEP-SIM-END
+</script>
+<script>
+// BN-SIM-START
+function poissonR(rng,lam){if(lam<=0)return 0;var Lx=Math.exp(-lam),k=0,p=1;do{k++;p*=rng();}while(p>Lx);return k-1;}
+
+// Diploid Wright-Fisher population. Haplotype h of individual i is index 2i+h.
+// Neutral: M biallelic sites evenly spaced along a chromosome of map length RN Morgans (dense Uint8Array).
+// Harmful: infinite sites, unlinked; each haplotype holds a sorted list of mutation ids.
+function makePop(n,M){return {n:n,M:M,neu:new Uint8Array(2*n*M),mut:new Array(2*n),fixed:0,nextId:0};}
+function clonePop(p){var q=makePop(p.n,p.M);q.neu.set(p.neu);for(var i=0;i<2*p.n;i++)q.mut[i]=p.mut[i].slice();q.fixed=p.fixed;q.nextId=p.nextId;return q;}
+
+function genoCounts(a,b){ // het, hom counts between two sorted lists
+  var i=0,j=0,hom=0;while(i<a.length&&j<b.length){if(a[i]===b[j]){hom++;i++;j++;}else if(a[i]<b[j])i++;else j++;}
+  return [a.length+b.length-2*hom,hom];
+}
+function fitnessOf(p,i,s,h){var c=genoCounts(p.mut[2*i],p.mut[2*i+1]);return Math.pow(1-h*s,c[0])*Math.pow(1-s,c[1]);}
+
+function makeCoin(rng){var bits=0,nb=0;return function(){if(nb===0){bits=(rng()*4294967296)>>>0;nb=32;}nb--;var b=bits&1;bits>>>=1;return b;};}
+function intersectAll(lists){ // ids present in every list (all sorted)
+  var cand=lists[0].slice();
+  for(var h=1;h<lists.length&&cand.length;h++){var b=lists[h],out=[],i=0,j=0;
+    while(i<cand.length&&j<b.length){if(cand[i]===b[j]){out.push(cand[i]);i++;j++;}else if(cand[i]<b[j])i++;else j++;}cand=out;}
+  return cand;
+}
+function removeFixed(q){var fx=intersectAll(q.mut);if(fx.length){q.fixed+=fx.length;var S=new Set(fx);for(var i=0;i<q.mut.length;i++)q.mut[i]=q.mut[i].filter(function(x){return !S.has(x);});}}
+function gamete(p,par,coin,out){ // build a recombinant gamete's harmful list (free recombination)
+  var a=p.mut[2*par],b=p.mut[2*par+1],i=0,j=0;
+  while(i<a.length||j<b.length){
+    if(j>=b.length||(i<a.length&&a[i]<b[j])){if(coin())out.push(a[i]);i++;}
+    else if(i>=a.length||b[j]<a[i]){if(coin())out.push(b[j]);j++;}
+    else{out.push(a[i]);i++;j++;}
+  }
+  return out;
+}
+
+// One generation: n2 offspring from population p.
+function nextGen(p,n2,o){
+  var rng=o.rng,coin=makeCoin(rng),RN=o.RN==null?1:o.RN,s=o.s,h=o.h,U=o.U,M=p.M,n=p.n;
+  var cum=new Float64Array(n),tot=0;
+  for(var i=0;i<n;i++){tot+=fitnessOf(p,i,s,h);cum[i]=tot;}
+  function pick(){var u=rng()*tot,lo=0,hi=n-1;while(lo<hi){var m=(lo+hi)>>1;if(cum[m]<u)lo=m+1;else hi=m;}return lo;}
+  var q={n:n2,M:M,neu:new Uint8Array(2*n2*M),mut:new Array(2*n2),fixed:p.fixed,nextId:p.nextId};
+  for(i=0;i<n2;i++){
+    for(var k=0;k<2;k++){
+      var par=pick(),hq=2*i+k,src0=2*par*M,src1=(2*par+1)*M,dst=hq*M;
+      var nx=poissonR(rng,RN),cur=coin()?src0:src1,start=0;
+      if(nx){var bp=[];for(var t=0;t<nx;t++)bp.push(Math.round(rng()*M));bp.sort(function(x,y){return x-y;});
+        for(t=0;t<nx;t++){if(bp[t]>start){q.neu.set(p.neu.subarray(cur+start,cur+bp[t]),dst+start);start=bp[t];}cur=(cur===src0)?src1:src0;}}
+      q.neu.set(p.neu.subarray(cur+start,cur+M),dst+start);
+      var g=gamete(p,par,coin,[]),nm=poissonR(rng,U);
+      for(var t=0;t<nm;t++)g.push(q.nextId++);
+      q.mut[hq]=g;
+    }
+  }
+  // remove fixed mutations (every copy carries it) and record them
+  removeFixed(q);
+  return q;
+}
+
+function stats(p,o){
+  var n=p.n,M=p.M,H=2*n,s=o.s,h=o.h,het=0;
+  var site=new Float64Array(M);
+  for(var j=0;j<M;j++){var c=0;for(var i=0;i<H;i++)c+=p.neu[i*M+j];var f=c/H;site[j]=2*f*(1-f)*H/(H-1);het+=site[j];}
+  var load=0,wsum=0,wself=0;
+  var fixW=Math.pow(1-s,p.fixed);
+  for(i=0;i<n;i++){
+    var gc=genoCounts(p.mut[2*i],p.mut[2*i+1]);
+    load+=gc[0]+2*gc[1];
+    var w=Math.pow(1-h*s,gc[0])*Math.pow(1-s,gc[1]);wsum+=w;
+    wself+=Math.pow(0.25*(1-s)+0.5*(1-h*s)+0.25,gc[0])*Math.pow(1-s,gc[1]);
+  }
+  return {n:n,het:het/M,site:site,load:load/n+2*p.fixed,fixed:p.fixed,
+          fitness:(wsum/n)*fixW,inbDep:1-wself/wsum};
+}
+
+// Build the shared starting population: burn-in for harmful load, then fresh neutral variation.
+function initPopulation(o){
+  var N=o.N,M=o.M||200,rng=o.rng,p=makePop(N,M);
+  for(var i=0;i<2*N;i++)p.mut[i]=[];
+  for(var g=0;g<(o.burn==null?200:o.burn);g++)p=nextGen(p,N,o);
+  p.fixed=0; // count only fixations after generation 0
+  var H=2*N,lo=Math.ceil(0.1*H),hi=H-lo,cw=[],tot=0;
+  for(var c=lo;c<=hi;c++){tot+=1/c;cw.push(tot);}
+  var idx=new Int32Array(H);for(i=0;i<H;i++)idx[i]=i;
+  function shuffle(){for(var i=H-1;i>0;i--){var m=Math.floor(rng()*(i+1)),t=idx[i];idx[i]=idx[m];idx[m]=t;}}
+  for(var j=0;j<M;j++){var u=rng()*tot,k=0;while(cw[k]<u)k++;shuffle();for(i=0;i<H;i++)p.neu[idx[i]*M+j]=(i<lo+k)?1:0;}
+  return p;
+}
+function sampleFounders(p,F,rng){
+  var M=p.M,q=makePop(F,M),ids=[];for(var i=0;i<p.n;i++)ids.push(i);
+  for(i=0;i<F;i++){var m=i+Math.floor(rng()*(p.n-i)),t=ids[i];ids[i]=ids[m];ids[m]=t;
+    for(var k=0;k<2;k++){var src=2*ids[i]+k,dst=2*i+k;q.neu.set(p.neu.subarray(src*M,src*M+M),dst*M);q.mut[dst]=p.mut[src].slice();}}
+  q.fixed=0;q.nextId=p.nextId;
+  // mutations fixed among the founders count as fixed in the crop
+  removeFixed(q);
+  return q;
+}
+// Paired simulation driver.
+function createBottleneck(o){
+  var base=initPopulation(o);
+  var wild=clonePop(base),crop=sampleFounders(base,o.F,o.rng);
+  var st={gen:0,T:o.T||200,wild:wild,crop:crop,hist:{wild:[stats(wild,o)],crop:[stats(crop,o)]},done:false};
+  st.H0=st.hist.wild[0].het;st.site0=st.hist.wild[0].site;
+  st.step=function(){
+    if(st.done)return;
+    st.gen++;
+    st.wild=nextGen(st.wild,o.N,o);
+    st.crop=nextGen(st.crop,st.gen<=o.D?o.F:o.N,o);
+    st.hist.wild.push(stats(st.wild,o));st.hist.crop.push(stats(st.crop,o));
+    if(st.gen>=st.T)st.done=true;
+  };
+  return st;
+}
+// BN-SIM-END
+</script>
+<script>
+(function(){
+var S_STEPS=[0.01,0.012,0.015,0.02,0.025,0.03,0.04,0.05,0.06,0.08,0.1,0.12,0.15,0.18,0.2,0.25,0.3,0.35,0.4,0.45,0.5];
+var $=function(id){return document.getElementById('sw-'+id);};
+var sEl=$('s'),rEl=$('r');
+function sv(){return S_STEPS[+sEl.value];}
+function rv(){return (+rEl.value)/100;}
+function showVals(){$('sVal').textContent=sv();$('rVal').textContent=rv().toFixed(2);}
+sEl.oninput=rEl.oninput=showVals;showVals();
+
+var REGION_KB=500;
+var sim=null,running=false,fast=false,losses=0,ghosts=[],history=[],runNo=0,seedBase=12345,attempt=0,lastMetrics=null;
+
+function axes(ctx,w,h,m,xlab,ylab){
+  ctx.strokeStyle=cssv('--line');ctx.lineWidth=1;ctx.beginPath();
+  ctx.moveTo(m.l,m.t);ctx.lineTo(m.l,h-m.b);ctx.lineTo(w-m.r,h-m.b);ctx.stroke();
+  ctx.fillStyle=cssv('--muted');ctx.font='12px -apple-system,Helvetica,Arial,sans-serif';
+  ctx.textAlign='center';ctx.fillText(xlab,(m.l+w-m.r)/2,h-4);
+  ctx.save();ctx.translate(12,(m.t+h-m.b)/2);ctx.rotate(-Math.PI/2);ctx.fillText(ylab,0,0);ctx.restore();
+}
+function niceMax(g){var steps=[100,200,300,500,750,1000,1500,2000,3000];for(var i=0;i<steps.length;i++)if(g<=steps[i])return steps[i];return g;}
+
+function drawFreq(){
+  var c=$('cFreq'),d=setupCanvas(c,window.innerWidth<700?200:240),ctx=d.ctx,w=d.w,h=d.h,m={l:42,r:10,t:10,b:30};
+  ctx.clearRect(0,0,w,h);
+  var gmax=sim?sim.gen:0;ghosts.forEach(function(f){gmax=Math.max(gmax,f.length-1);});
+  gmax=niceMax(Math.max(gmax,100));
+  var X=function(g){return m.l+(w-m.l-m.r)*g/gmax;},Y=function(f){return h-m.b-(h-m.t-m.b)*f;};
+  ctx.fillStyle=cssv('--muted');ctx.font='11px -apple-system,Helvetica,Arial,sans-serif';
+  ctx.textAlign='right';[0,0.5,1].forEach(function(v){ctx.fillText(v,m.l-6,Y(v)+4);ctx.strokeStyle=cssv('--line');ctx.beginPath();ctx.moveTo(m.l,Y(v));ctx.lineTo(w-m.r,Y(v));ctx.stroke();});
+  ctx.textAlign='center';[0,gmax/2,gmax].forEach(function(v){ctx.fillText(Math.round(v),X(v),h-m.b+14);});
+  axes(ctx,w,h,m,'generation','frequency');
+  function line(f,col,lw){ctx.strokeStyle=col;ctx.lineWidth=lw;ctx.beginPath();for(var i=0;i<f.length;i++){var x=X(i),y=Y(f[i]);i?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.stroke();}
+  ghosts.forEach(function(f){line(f,cssv('--ghost'),1.5);});
+  if(sim)line(sim.freqs,cssv('--trace'),2.5);
+}
+
+function currentRel(){if(!sim)return null;return relDiversity(sim.divProfile(),sim.div0,6);}
+function drawDiv(rel){
+  var c=$('cDiv'),d=setupCanvas(c,window.innerWidth<700?200:240),ctx=d.ctx,w=d.w,h=d.h,m={l:42,r:10,t:14,b:30};
+  ctx.clearRect(0,0,w,h);
+  var ymax=1.25,X=function(p){return m.l+(w-m.l-m.r)*p;},Y=function(v){return h-m.b-(h-m.t-m.b)*Math.min(v,ymax)/ymax;};
+  ctx.fillStyle=cssv('--muted');ctx.font='11px -apple-system,Helvetica,Arial,sans-serif';
+  ctx.textAlign='right';[0,0.5,1].forEach(function(v){ctx.fillText(v,m.l-6,Y(v)+4);});
+  ctx.textAlign='center';[0,0.25,0.5,0.75,1].forEach(function(v){ctx.fillText(Math.round(v*100)+'%',X(v),h-m.b+14);});
+  axes(ctx,w,h,m,'position along chromosome','relative diversity');
+  ctx.setLineDash([6,4]);ctx.strokeStyle=cssv('--muted');ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(X(0),Y(1));ctx.lineTo(X(1),Y(1));ctx.stroke();
+  ctx.setLineDash([2,4]);ctx.strokeStyle=cssv('--bad');ctx.beginPath();ctx.moveTo(X(0),Y(0.5));ctx.lineTo(X(1),Y(0.5));ctx.stroke();ctx.setLineDash([]);
+  ctx.fillStyle=cssv('--bad');ctx.textAlign='left';ctx.fillText('half',X(0)+4,Y(0.5)-4);
+  if(rel){
+    ctx.strokeStyle=cssv('--trace');ctx.lineWidth=2.5;ctx.beginPath();
+    for(var j=0;j<rel.length;j++){var x=X((j+0.5)/rel.length),y=Y(rel[j]);j?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.stroke();
+  }
+  if(lastMetrics&&lastMetrics.width>0&&sim&&sim.outcome==='fixed'){
+    var yb=m.t+4,xl=X(lastMetrics.left),xr=X(lastMetrics.right);
+    ctx.strokeStyle=cssv('--ink');ctx.lineWidth=1.5;ctx.beginPath();
+    ctx.moveTo(xl,yb+8);ctx.lineTo(xl,yb);ctx.lineTo(xr,yb);ctx.lineTo(xr,yb+8);ctx.stroke();
+  }
+  star(ctx,X(0.5),Y(0)-2,8,cssv('--star'));
+}
+function star(ctx,x,y,r,col){ctx.fillStyle=col;ctx.beginPath();for(var i=0;i<10;i++){var a=-Math.PI/2+i*Math.PI/5,rr=i%2?r*0.45:r;ctx.lineTo(x+rr*Math.cos(a),y+rr*Math.sin(a));}ctx.closePath();ctx.fill();}
+
+var sampleIdx=[];
+function drawChr(){
+  var n=16,c=$('cChr'),d=setupCanvas(c,n*16+12),ctx=d.ctx,w=d.w,h=d.h,ml=8,mr=8;
+  ctx.clearRect(0,0,w,h);if(!sim)return;
+  var L=sim.L,N=sim.N;
+  if(sampleIdx.length!==n){sampleIdx=[];for(var i=0;i<n;i++)sampleIdx.push(Math.floor(i*N/n));}
+  var X=function(p){return ml+(w-ml-mr)*p;},cols=[cssv('--dot1'),cssv('--dot2'),cssv('--dot3')];
+  var dotEvery=Math.max(1,Math.ceil(L/Math.max(20,(w-ml-mr)/6)));
+  for(var r=0;r<n;r++){
+    var id=sampleIdx[r],y=10+r*16;
+    ctx.fillStyle=cssv('--gold');
+    var run=-1;
+    for(var j=0;j<=L;j++){var a=j<L?sim.anc[id*L+j]:0;
+      if(a&&run<0)run=j; if(!a&&run>=0){ctx.fillRect(X(run/L),y-5,X(j/L)-X(run/L),10);run=-1;}}
+    ctx.strokeStyle=cssv('--chrom');ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(X(0),y);ctx.lineTo(X(1),y);ctx.stroke();
+    for(j=0;j<L;j+=dotEvery){if(sim.geno[id*L+j]){ctx.fillStyle=cols[j%3];ctx.beginPath();ctx.arc(X((j+0.5)/L),y,2.2,0,6.29);ctx.fill();}}
+    if(sim.ben[id])star(ctx,X(0.5),y,6,cssv('--star'));
+  }
+}
+function drawAll(){var rel=currentRel();drawFreq();drawDiv(rel);drawChr();}
+
+function setStatus(t,cls){var e=$('status');e.innerHTML=t;e.className='status'+(cls?' '+cls:'');}
+function newSim(){
+  var seed=$('seed').checked?(seedBase+attempt):Math.floor(Math.random()*1e9);
+  sim=createSim({N:400,L:200,s:sv(),R:rv(),rng:mulberry32(seed),cap:3000});
+  lastMetrics=null;sampleIdx=[];
+}
+function clearReadouts(){$('roT').textContent='–';$('roD').textContent='–';$('roW').textContent='–';$('roWkb').textContent='';}
+function startRun(){
+  if(running)return;
+  $('retry').style.display='none';
+  if(sim&&sim.done&&sim.outcome==='fixed')ghosts.push(sim.freqs.slice());
+  if(ghosts.length>12)ghosts.shift();
+  losses=0;attempt=0;newSim();clearReadouts();running=true;
+  $('run').disabled=true;sEl.disabled=rEl.disabled=true;
+  setStatus('Running… one copy out of 400 chromosomes.');
+  requestAnimationFrame(loop);
+}
+function loop(){
+  if(!running)return;
+  if(SEC.hidden){paused=true;return;}
+  var per=fast?40:1;
+  for(var k=0;k<per&&!sim.done;k++)sim.step();
+  if(!sim.done){
+    setStatus('Generation '+sim.gen+': '+sim.count+' of 400 chromosomes carry the beneficial allele.'+(losses?' (lost '+losses+'× so far)':''));
+    drawAll();requestAnimationFrame(loop);return;
+  }
+  if(sim.outcome==='lost'){
+    losses++;
+    if($('auto').checked){attempt++;newSim();setStatus('Lost by chance ('+losses+'×), starting again…','bad');drawAll();requestAnimationFrame(loop);return;}
+    finish();
+    setStatus('Lost by chance after '+sim.gen+' generation'+(sim.gen>1?'s':'')+' — that happens to most new beneficial mutations! Run again.','bad');
+    $('retry').style.display='block';
+    drawAll();return;
+  }
+  finish();
+  var rel=currentRel();lastMetrics=sweepMetrics(rel);
+  if(sim.outcome==='cap'){setStatus('Stopped at the 3,000-generation limit before fixation.','bad');drawAll();return;}
+  var dropPct=Math.round(lastMetrics.drop*100),wPct=Math.round(lastMetrics.width*100);
+  $('roT').textContent=sim.gen;$('roD').textContent=dropPct+'%';$('roW').textContent=wPct+'%';
+  $('roWkb').textContent='≈ '+Math.round(lastMetrics.width*REGION_KB)+' kb (if region = 500 kb)';
+  setStatus('Fixed! The beneficial allele reached 100% after '+sim.gen+' generations'+(losses?' (it was lost '+losses+'× by chance first)':'')+'.','good');
+  runNo++;history.push({n:runNo,s:sv(),R:rv(),g:sim.gen,d:dropPct,w:wPct,lost:losses});renderHist();
+  drawAll();
+}
+function finish(){running=false;$('run').disabled=false;sEl.disabled=rEl.disabled=false;}
+function renderHist(){
+  $('hist').innerHTML=history.slice().reverse().map(function(h){
+    return '<tr><td>'+h.n+'</td><td>'+h.s+'</td><td>'+h.R.toFixed(2)+'</td><td>'+h.g+'</td><td>'+h.d+'%</td><td>'+h.w+'% <span style="color:var(--muted)">('+Math.round(h.w*REGION_KB/100)+' kb)</span></td><td>'+h.lost+'</td></tr>';
+  }).join('')||'<tr><td colspan="7" style="text-align:left;color:var(--muted)">No runs yet.</td></tr>';
+}
+$('run').onclick=startRun;
+$('retry').onclick=startRun;
+$('reset').onclick=function(){running=false;finish();sim=null;ghosts=[];losses=0;lastMetrics=null;clearReadouts();$('retry').style.display='none';setStatus('Press <b>Run</b> to release one beneficial mutation.');drawAll();};
+$('speed').onclick=function(){fast=!fast;this.textContent='Speed: '+(fast?'fast':'animated');};
+$('clear').onclick=function(){history=[];runNo=0;renderHist();};
+var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(drawAll,100);});
+if(window.matchMedia)window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',drawAll);
+var SEC=document.getElementById('tab-sweep'),paused=false;
+window.SweepUI={show:function(){drawAll();if(paused){paused=false;if(running)requestAnimationFrame(loop);}}};
+renderHist();drawAll();
+})();
+</script>
+<script>
+(function(){
+var F_STEPS=[2,3,4,5,7,10,15,20,30,50,75,100,150,200];
+var SD_STEPS=[0.001,0.002,0.003,0.005,0.01,0.02,0.03,0.05,0.1];
+var $=function(id){return document.getElementById('bn-'+id);};
+var Fv=function(){return F_STEPS[+$('F').value];},Dv=function(){return +$('D').value;},
+    SDv=function(){return SD_STEPS[+$('sd').value];},Uv=function(){return (+$('U').value)/10;},Hv=function(){return $('rec').checked?0:0.25;};
+function showVals(){$('FVal').textContent=Fv();$('DVal').textContent=Dv();$('sdVal').textContent=SDv();$('UVal').textContent=Uv().toFixed(1);}
+['F','D','sd','U'].forEach(function(id){$(id).oninput=showVals;});showVals();
+var N=500,T=200,sim=null,running=false,fast=false,history=[],runNo=0;
+
+function frame(id,ylab,yticks,Y,X,m,w,h,ctx,xlab){
+  ctx.font='11px -apple-system,Helvetica,Arial,sans-serif';ctx.fillStyle=cssv('--muted');ctx.strokeStyle=cssv('--line');ctx.lineWidth=1;
+  ctx.textAlign='right';yticks.forEach(function(v){ctx.fillText(v,m.l-6,Y(v)+4);ctx.beginPath();ctx.moveTo(m.l,Y(v));ctx.lineTo(w-m.r,Y(v));ctx.stroke();});
+  ctx.textAlign='center';[0,50,100,150,200].forEach(function(v){ctx.fillText(v,X(v),h-m.b+14);});
+  ctx.fillText(xlab||'generation',(m.l+w-m.r)/2,h-3);
+  ctx.save();ctx.translate(11,(m.t+h-m.b)/2);ctx.rotate(-Math.PI/2);ctx.fillText(ylab,0,0);ctx.restore();
+}
+function series(ctx,arr,f,X,Y,col,dash){ctx.strokeStyle=col;ctx.lineWidth=2.5;ctx.setLineDash(dash||[]);ctx.beginPath();for(var i=0;i<arr.length;i++){var x=X(i),y=Y(f(arr[i]));i?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.stroke();ctx.setLineDash([]);}
+function plotH(){return window.innerWidth<700?180:220;}
+function drawN(){
+  var d=setupCanvas($('cN'),plotH()),ctx=d.ctx,w=d.w,h=d.h,m={l:44,r:10,t:10,b:30};ctx.clearRect(0,0,w,h);
+  var X=function(g){return m.l+(w-m.l-m.r)*g/T;},lmax=Math.log(1000),Y=function(v){return h-m.b-(h-m.t-m.b)*Math.log(Math.max(v,1))/lmax;};
+  frame('cN','plants',[2,10,100,500],Y,X,m,w,h,ctx);
+  if(!sim)return;
+  series(ctx,sim.hist.wild,function(s){return s.n;},X,Y,cssv('--wild'));
+  series(ctx,sim.hist.crop,function(s){return s.n;},X,Y,cssv('--crop'));
+}
+function relOf(p){return relDiversity(sim.hist[p][sim.hist[p].length-1].site,sim.site0,6);}
+function belowHalf(rel){var c=0;for(var j=0;j<rel.length;j++)if(rel[j]<0.5)c++;return c/rel.length;}
+function drawP(){
+  var d=setupCanvas($('cP'),plotH()),ctx=d.ctx,w=d.w,h=d.h,m={l:44,r:10,t:14,b:30};ctx.clearRect(0,0,w,h);
+  var ymax=1.25,X=function(p){return m.l+(w-m.l-m.r)*p;},Y=function(v){return h-m.b-(h-m.t-m.b)*Math.min(v,ymax)/ymax;};
+  ctx.font='11px -apple-system,Helvetica,Arial,sans-serif';ctx.fillStyle=cssv('--muted');
+  ctx.textAlign='right';[0,0.5,1].forEach(function(v){ctx.fillText(v,m.l-6,Y(v)+4);});
+  ctx.textAlign='center';[0,0.25,0.5,0.75,1].forEach(function(v){ctx.fillText(Math.round(v*100)+'%',X(v),h-m.b+14);});
+  ctx.fillText('position along chromosome',(m.l+w-m.r)/2,h-3);
+  ctx.save();ctx.translate(11,(m.t+h-m.b)/2);ctx.rotate(-Math.PI/2);ctx.fillText('relative diversity',0,0);ctx.restore();
+  ctx.strokeStyle=cssv('--line');ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(m.l,m.t);ctx.lineTo(m.l,h-m.b);ctx.lineTo(w-m.r,h-m.b);ctx.stroke();
+  ctx.setLineDash([6,4]);ctx.strokeStyle=cssv('--muted');ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(X(0),Y(1));ctx.lineTo(X(1),Y(1));ctx.stroke();
+  ctx.setLineDash([2,4]);ctx.strokeStyle=cssv('--bad');ctx.beginPath();ctx.moveTo(X(0),Y(0.5));ctx.lineTo(X(1),Y(0.5));ctx.stroke();ctx.setLineDash([]);
+  ctx.fillStyle=cssv('--bad');ctx.textAlign='left';ctx.fillText('half',X(0)+4,Y(0.5)-4);
+  if(!sim)return;
+  [['wild','--wild'],['crop','--crop']].forEach(function(pc){var rel=relOf(pc[0]);ctx.strokeStyle=cssv(pc[1]);ctx.lineWidth=2.5;ctx.beginPath();
+    for(var j=0;j<rel.length;j++){var x=X((j+0.5)/rel.length),y=Y(rel[j]);j?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.stroke();});
+}
+function drawH(){
+  var d=setupCanvas($('cH'),plotH()),ctx=d.ctx,w=d.w,h=d.h,m={l:44,r:10,t:10,b:30};ctx.clearRect(0,0,w,h);
+  var X=function(g){return m.l+(w-m.l-m.r)*g/T;},Y=function(v){return h-m.b-(h-m.t-m.b)*Math.min(v,1.1)/1.1;};
+  frame('cH','relative diversity',[0,0.5,1],Y,X,m,w,h,ctx);
+  if(!sim)return;var H0=sim.H0;
+  series(ctx,sim.hist.wild,function(s){return s.het/H0;},X,Y,cssv('--wild'));
+  series(ctx,sim.hist.crop,function(s){return s.het/H0;},X,Y,cssv('--crop'));
+}
+function drawL(){
+  var d=setupCanvas($('cL'),plotH()),ctx=d.ctx,w=d.w,h=d.h,m={l:44,r:34,t:10,b:30};ctx.clearRect(0,0,w,h);
+  var X=function(g){return m.l+(w-m.l-m.r)*g/T;};
+  var lmax=10,fmax=5;
+  if(sim){['wild','crop'].forEach(function(p){sim.hist[p].forEach(function(s){lmax=Math.max(lmax,s.load);fmax=Math.max(fmax,s.fixed);});});}
+  lmax=Math.ceil(lmax*1.1/10)*10;fmax=Math.ceil(fmax*1.1);
+  var Y=function(v){return h-m.b-(h-m.t-m.b)*v/lmax;},Y2=function(v){return h-m.b-(h-m.t-m.b)*v/fmax;};
+  frame('cL','harmful alleles per plant',[0,Math.round(lmax/2),lmax],Y,X,m,w,h,ctx);
+  ctx.fillStyle=cssv('--harm');ctx.textAlign='left';[0,Math.round(fmax/2),fmax].forEach(function(v){ctx.fillText(v,w-m.r+4,Y2(v)+4);});
+  if(!sim)return;
+  series(ctx,sim.hist.wild,function(s){return s.load;},X,Y,cssv('--wild'));
+  series(ctx,sim.hist.crop,function(s){return s.load;},X,Y,cssv('--crop'));
+  series(ctx,sim.hist.wild,function(s){return s.fixed;},X,Y2,cssv('--wild'),[5,4]);
+  series(ctx,sim.hist.crop,function(s){return s.fixed;},X,Y2,cssv('--crop'),[5,4]);
+}
+function drawAll(){drawN();drawP();drawH();drawL();}
+function pair(a,b){return '<span class="w">'+a+'</span> / <span class="c">'+b+'</span>';}
+function readouts(){
+  if(!sim){['roA','roH','roX','roL','roW','roI'].forEach(function(id){$(id).textContent='–';});return;}
+  var w=sim.hist.wild[sim.hist.wild.length-1],c=sim.hist.crop[sim.hist.crop.length-1],H0=sim.H0;
+  var vs=function(cv,wv){return '<span class="c">'+cv+'</span> <small>crop vs</small> <span class="w">'+wv+'</span> <small>wild</small>';};
+  $('roH').innerHTML=vs(Math.round(100*(1-c.het/H0))+'%',Math.round(100*(1-w.het/H0))+'%');
+  $('roA').innerHTML=vs(Math.round(100*belowHalf(relOf('crop')))+'%',Math.round(100*belowHalf(relOf('wild')))+'%');
+  $('roX').innerHTML=pair(w.fixed,c.fixed);
+  $('roL').innerHTML=pair(w.load.toFixed(1),c.load.toFixed(1));
+  $('roW').innerHTML=pair(w.fitness.toFixed(2),c.fitness.toFixed(2));
+  $('roI').innerHTML=pair(Math.round(100*w.inbDep)+'%',Math.round(100*c.inbDep)+'%');
+}
+function setStatus(t){$('status').innerHTML=t;}
+function lock(on){['F','D','sd','U','rec','run'].forEach(function(id){$(id).disabled=on;});}
+function start(){
+  if(running)return;
+  lock(true);setStatus('Preparing the starting population…');
+  setTimeout(function(){
+    var seed=$('seed').checked?20261015:Math.floor(Math.random()*1e9);
+    var o={N:N,F:Fv(),D:Dv(),s:SDv(),h:Hv(),U:Uv(),T:T,rng:mulberry32(seed)};
+    sim=createBottleneck(o);sim.o=o;running=true;readouts();drawAll();requestAnimationFrame(loop);
+  },30);
+}
+function loop(){
+  if(!running)return;
+  if(SEC.hidden){paused=true;return;}
+  var per=fast?4:1;for(var k=0;k<per&&!sim.done;k++)sim.step();
+  readouts();drawAll();
+  if(!sim.done){setStatus('Generation '+sim.gen+' of '+T+'. Crop size: '+sim.crop.n+' plants.');requestAnimationFrame(loop);return;}
+  running=false;lock(false);setStatus('Done: 200 generations.');
+  var w=sim.hist.wild[T],c=sim.hist.crop[T],o=sim.o,H0=sim.H0;
+  runNo++;history.push({n:runNo,F:o.F,D:o.D,s:o.s,U:o.U,h:o.h,aw:Math.round(100*belowHalf(relOf('wild'))),ac:Math.round(100*belowHalf(relOf('crop'))),hw:Math.round(100*(1-w.het/H0)),hc:Math.round(100*(1-c.het/H0)),fw:w.fixed,fc:c.fixed,lw:w.load.toFixed(1),lc:c.load.toFixed(1)});
+  renderHist();
+}
+function renderHist(){
+  $('hist').innerHTML=history.slice().reverse().map(function(r){return '<tr><td>'+r.n+'</td><td>'+r.F+'</td><td>'+r.D+'</td><td>'+r.s+'</td><td>'+r.U.toFixed(1)+'</td><td>'+r.h+'</td><td>'+pair(r.hw+'%',r.hc+'%')+'</td><td>'+pair(r.aw+'%',r.ac+'%')+'</td><td>'+pair(r.fw,r.fc)+'</td><td>'+pair(r.lw,r.lc)+'</td></tr>';}).join('')||'<tr><td colspan="10" style="text-align:left;color:var(--muted)">No runs yet.</td></tr>';
+}
+$('run').onclick=start;
+$('reset').onclick=function(){running=false;lock(false);sim=null;readouts();drawAll();setStatus('Large size <i>N</i> = 500 plants. Run lasts 200 generations.');};
+$('speed').onclick=function(){fast=!fast;this.textContent='Speed: '+(fast?'fast':'animated');};
+$('clear').onclick=function(){history=[];runNo=0;renderHist();};
+var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(drawAll,100);});
+var SEC=document.getElementById('tab-bottleneck'),paused=false;
+window.BottleneckUI={show:function(){drawAll();if(paused){paused=false;if(running)requestAnimationFrame(loop);}}};
+renderHist();drawAll();
+})();
+</script>
+<script>
+(function(){
+var TABS=['sweep','bottleneck'],UI={sweep:function(){return window.SweepUI;},bottleneck:function(){return window.BottleneckUI;}};
+function show(name,push){
+  if(TABS.indexOf(name)<0)name='sweep';
+  TABS.forEach(function(t){document.getElementById('tab-'+t).hidden=(t!==name);document.getElementById('tabbtn-'+t).setAttribute('aria-selected',t===name?'true':'false');});
+  if(push&&location.hash!=='#'+name)history.replaceState(null,'','#'+name);
+  var u=UI[name]();if(u)u.show();
+}
+document.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){show(b.getAttribute('data-tab'),true);window.scrollTo(0,0);};});
+window.addEventListener('hashchange',function(){show(location.hash.slice(1),false);});
+show(location.hash.slice(1)||'sweep',false);
+})();
+</script>
+</body>
+</html>

@@ -5,6 +5,7 @@ project:
     - announce.js
     - slides/
     - files/
+    - simulator/
 
 website:
   title: "PLS 152 — Plant Genetics"
@@ -30,6 +31,8 @@ website:
         text: Midterm
       - href: capstone.qmd
         text: Capstone
+      - href: simulator/index.html
+        text: Simulator
       - href: readings.qmd
         text: Readings
       - href: syllabus.qmd

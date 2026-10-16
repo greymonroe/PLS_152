@@ -12,3 +12,5 @@ Due: **Quiz 2** (Tue 3:10 PM) · Reflections. Heads-up: the
 [Midterm Topic Explorer](midterm.qmd) is due next Thu Oct 22, 3:10 PM.
 
 Slides: [Oct 13 — Reproduction & domestication](slides/2026-10-13_reproduction-domestication.pdf)
+
+Try it: [Selective sweep & bottleneck simulator](simulator/index.html). Change the strength of selection, the recombination rate, or the number of founders and watch genetic diversity respond.
