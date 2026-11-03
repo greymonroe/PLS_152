@@ -17,7 +17,7 @@ name is optional. I'll send the questions to the panel so they can prepare.
 ## 2. Read the networking guide
 
 [A Beginner's Guide to Networking](https://hbr.org/2023/03/a-beginners-guide-to-networking)
-(Rakshitha Arni Ravishankar, *Harvard Business Review*, March 2023). If the HBR page asks you to sign in, read the [PDF copy](files/HBR_2023_Beginners_Guide_to_Networking.pdf). The
+(Rakshitha Arni Ravishankar, *Harvard Business Review*, March 2023). If the HBR page asks you to sign in, read the [PDF copy](files/networking_guide.pdf). The
 panel is a chance to meet people who do this work, so come ready to talk to them.
 
 [Back to week 8](week8.qmd)
