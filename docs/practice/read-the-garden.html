@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Read the garden · PLS 152</title>
+<style>
+  :root { --bg: #46178f; --card: #ffffff; --ink: #222; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 16px; }
+  .top { display: flex; align-items: center; gap: 12px; color: #fff; font-weight: 800; font-size: 18px; margin-bottom: 10px; }
+  .top .score { margin-left: auto; background: rgba(255,255,255,.18); padding: 6px 14px; border-radius: 20px; }
+  .card { background: var(--card); border-radius: 14px; padding: 16px; text-align: center; }
+  .q { font-size: 24px; font-weight: 800; margin: 4px 0 10px; }
+  .card img { width: 100%; max-height: 52vh; object-fit: contain; border-radius: 8px; }
+  .timer { height: 10px; background: rgba(255,255,255,.25); border-radius: 6px; margin: 10px 0; overflow: hidden; }
+  .timer div { height: 100%; background: #ffd600; width: 100%; transition: width .1s linear; }
+  .opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .opt { border: 0; border-radius: 10px; padding: 18px 14px; color: #fff; font-size: 18px; font-weight: 800; text-align: left; display: flex; gap: 12px; align-items: center; cursor: pointer; min-height: 76px; }
+  .opt .sh { font-size: 26px; }
+  .opt:disabled { cursor: default; }
+  .opt.dim { opacity: .3; } .opt.right { outline: 5px solid #fff; }
+  .c0 { background: #e21b3c; } .c1 { background: #1368ce; } .c2 { background: #d89e00; } .c3 { background: #26890c; }
+  .fb { margin-top: 12px; padding: 14px; border-radius: 10px; font-size: 17px; text-align: left; line-height: 1.45; }
+  .fb.ok { background: #e8f5e9; } .fb.no { background: #ffebee; }
+  .fb b.big { font-size: 22px; display: block; margin-bottom: 4px; }
+  button.next { margin-top: 12px; background: #fff; color: var(--bg); border: 0; border-radius: 10px; padding: 14px 26px; font-size: 19px; font-weight: 800; cursor: pointer; }
+  .intro p { font-size: 18px; line-height: 1.5; text-align: left; }
+  .start { background: #26890c; color: #fff; border: 0; border-radius: 12px; padding: 16px 40px; font-size: 22px; font-weight: 800; cursor: pointer; margin-top: 8px; }
+  .final .big { font-size: 64px; font-weight: 900; color: var(--bg); }
+  a { color: #1368ce; }
+  @media (max-width: 560px) { .opts { grid-template-columns: 1fr; } .q { font-size: 20px; } .opt { font-size: 16px; min-height: 60px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><span>🌱 Read the garden</span><span id="prog"></span><span class="score" id="score">0 pts</span></div>
+  <div id="app"></div>
+</div>
+<script>
+const OPTS = ["Local adaptation", "Genetic difference, no local adaptation", "Plasticity only (no genetic difference)", "Genetic difference + plasticity, no local adaptation"];
+const SHAPES = ["▲", "◆", "●", "■"];
+const Q = [
+  { img: "../files/reaction_norms/garden_1.png", correct: 0,
+    why: "The lines cross. The cool-site population does best in the cool garden, and the warm-site population does best in the warm garden. Each population wins at home, so this is local adaptation." },
+  { img: "../files/reaction_norms/garden_2.png", correct: 2,
+    why: "The two populations are identical in each garden (the lines sit on top of each other). Both do better in the warm garden, so the environment changes the phenotype (plasticity), but there's no genetic difference." },
+  { img: "../files/reaction_norms/garden_3.png", correct: 1,
+    why: "The warm-site population is higher in both gardens, so the populations differ genetically. The lines are flat, so there's no plasticity, and the same population wins everywhere, so it isn't local adaptation." },
+  { img: "../files/reaction_norms/garden_4.png", correct: 3,
+    why: "Both lines slope up (plasticity: both do better in the warm garden). The warm-site population is higher in both gardens (a genetic difference). The lines are parallel and never cross, so it isn't local adaptation." },
+];
+const TIME = 20;
+const app = document.getElementById("app");
+let i = 0, score = 0, right = 0, timer = null;
+const shuffle = (a) => { for (let k = a.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [a[k], a[j]] = [a[j], a[k]]; } return a; };
+
+function intro() {
+  document.getElementById("prog").textContent = "";
+  app.innerHTML = `<div class="card intro">
+    <div class="q">Read the garden</div>
+    <p>Seeds from two populations, one from a <b style="color:#1F78B4">cool site</b> and one from a <b style="color:#E65100">warm site</b>, are grown in a cool garden and a warm garden. Each graph shows each population's average fitness in each garden: its <b>reaction norm</b>.</p>
+    <p><b>Lines at different heights</b> = genetic difference. <b>Lines that slope</b> = plasticity. <b>Lines that cross, each population best at home</b> = local adaptation.</p>
+    <p>4 graphs, ${TIME} seconds each. Faster correct answers score more. (Toy data from the Nov 5 lecture.)</p>
+    <button class="start" onclick="ask()">Start</button></div>`;
+}
+
+function ask() {
+  const q = Q[i]; document.getElementById("prog").textContent = `${i + 1} / ${Q.length}`;
+  app.innerHTML = `<div class="card"><div class="q">Garden result ${i + 1}: what does it show?</div><img src="${q.img}" alt="Reaction norm graph ${i + 1}"></div>
+    <div class="timer"><div id="bar"></div></div>
+    <div class="opts">${OPTS.map((o, k) => `<button class="opt c${k}" data-k="${k}"><span class="sh">${SHAPES[k]}</span>${o}</button>`).join("")}</div><div id="fb"></div>`;
+  const t0 = performance.now(), bar = document.getElementById("bar");
+  timer = setInterval(() => { const left = Math.max(0, 1 - (performance.now() - t0) / (TIME * 1000)); bar.style.width = (left * 100) + "%"; if (!left) answer(null, 0); }, 100);
+  app.querySelectorAll(".opt").forEach((b) => b.onclick = () => answer(+b.dataset.k, Math.max(0, 1 - (performance.now() - t0) / (TIME * 1000))));
+}
+
+function answer(k, left) {
+  clearInterval(timer);
+  const q = Q[i], ok = k === q.correct, pts = ok ? Math.round(500 + 500 * left) : 0;
+  score += pts; right += ok; document.getElementById("score").textContent = `${score} pts`;
+  app.querySelectorAll(".opt").forEach((b) => { b.disabled = true; const kk = +b.dataset.k; if (kk === q.correct) b.classList.add("right"); else b.classList.add("dim"); });
+  document.getElementById("fb").innerHTML = `<div class="fb ${ok ? "ok" : "no"}"><b class="big">${k === null ? "⏱ Time's up!" : ok ? `✅ Correct! +${pts}` : "❌ Not quite"}</b>
+    ${ok ? "" : `Answer: <b>${OPTS[q.correct]}</b>. `}${q.why}</div>
+    <button class="next" onclick="next()">${i + 1 < Q.length ? "Next graph →" : "See my score"}</button>`;
+}
+
+function next() { i++; if (i < Q.length) ask(); else done(); }
+
+function done() {
+  document.getElementById("prog").textContent = "";
+  app.innerHTML = `<div class="card final"><div class="q">Final score</div><div class="big">${score}</div>
+    <p style="font-size:20px">${right} of ${Q.length} correct${right === Q.length ? " 🏆" : ""}</p>
+    <p style="font-size:17px">Real example: a reciprocal transplant of <i>Arabidopsis thaliana</i> between Italy and Sweden found the local population had higher fitness in 8 of 10 site-by-year comparisons
+    (<a href="https://doi.org/10.1111/j.1469-8137.2012.04112.x" target="_blank">Ågren &amp; Schemske 2012</a>).</p>
+    <button class="start" onclick="i=0;score=0;right=0;document.getElementById('score').textContent='0 pts';ask()">Play again</button>
+    <p><a href="../week6.html">← Back to Week 6</a></p></div>`;
+}
+intro();
+</script>
+</body>
+</html>

@@ -11,4 +11,4 @@ Due: **Quiz 5** (Tue 3:10 PM) · Reflections. Heads-up: the
 
 Slides: [Nov 3 — Finding the genes](slides/2026-11-03_finding-the-genes.pdf) · [Nov 5 — Climate adaptation](slides/2026-11-05_climate-adaptation.pdf)
 
-Practice: [Read the garden: reaction norms](reaction-norms.qmd) (the Nov 5 in-class game, with answers)
+Practice: [**Read the garden** game](practice/read-the-garden.html) (the Nov 5 Kahoot, self-paced) · [same questions as a worksheet with answers](reaction-norms.qmd)

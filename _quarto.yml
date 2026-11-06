@@ -6,6 +6,7 @@ project:
     - slides/
     - files/
     - simulator/
+    - practice/
 
 website:
   title: "PLS 152 — Plant Genetics"
