@@ -137,9 +137,10 @@ shared, so build your slides in a shared file (for example Google Slides)
 where the edit history shows who did what. Your individual statement should
 match what the group did.
 
-**Being in the audience.** Come both days. Asking at least one thoughtful
-question across December 1 and 3 is part of your individual grade, and
-good questions are part of what makes these two days fun.
+**Being in the audience.** Come both days and pay attention to the other
+groups. Your group also has an assigned group to ask a question
+([see the table above](#questions)), and good questions are part of what
+makes these two days fun.
 
 **Extra credit (up to 5 points)** goes to groups that bring something
 genuinely their own: an original framing, a creative way of explaining the
@@ -163,7 +164,7 @@ for the whole group. Two are graded for each student separately.
 | Collaboration | 10 | Group |
 | Time management and communication (under 10 minutes) | 5 | Group |
 | Individual contribution (from your statement) | 10 | Each student |
-| Audience engagement (attend, ask questions) | 5 | Each student |
+| Audience engagement (attend both days) | 5 | Each student |
 | **Total** | **100** | |
 | Extra credit: novelty | up to 5 | Group |
 
@@ -173,8 +174,7 @@ your slides), introduction / body / conclusion structure, clarity, slide
 design, collaboration, and time management (stay under 10 minutes).
 Two pieces are graded per student: your **individual contribution** (from
 your statement) and **audience engagement** — being present and engaged
-during the other groups' presentations, including asking at least one
-thoughtful question across the two days. Up to 5 extra credit points for
+during the other groups' presentations on both days. Up to 5 extra credit points for
 genuinely creative insights or framings.
 
 ## Full rubric
@@ -272,8 +272,8 @@ Contribution and Audience Engagement, which are per-student.)
 ### Audience Engagement (5 pts, per student)
 | Pts | Level | Description |
 |---|---|---|
-| 5 | Excellent | Actively engaged during other groups' presentations, including asking at least one thoughtful question across the two days. |
-| 3 | Good | Attentive but did not contribute questions/discussion. |
+| 5 | Excellent | Present and engaged during other groups' presentations on both days. |
+| 3 | Good | Missed part of the presentations, or present but not paying attention. |
 | 0 | Missing | Absent or disengaged during other presentations. |
 
 ### Extra Credit: Novelty (up to 5 pts)
