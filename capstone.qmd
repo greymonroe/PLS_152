@@ -2,7 +2,7 @@
 title: "Capstone: Final Group Presentation"
 ---
 
-The final for this class is a **group presentation (5–10 minutes)** exploring
+The final for this class is a **group presentation (under 10 minutes)** exploring
 a plant genetics topic of your group's choice, presented in class on
 **December 1 and 3**. Groups are 4–5 people. It's worth 30% of your grade
 (100 points, plus up to 5 extra credit).
@@ -39,6 +39,46 @@ which you want.
 | Tue **Dec 1**, 3:10 PM | **ALL groups** (both presentation days): presentation file uploaded to Canvas (PDF or PPTX, one upload per group) + each student's individual contributions statement |
 | Tue **Dec 1** + Thu **Dec 3** | Presentations in class |
 
+## Presentation schedule {#schedule}
+
+Presentation order was drawn at random. Find your group number on the Canvas *Final project groups* page. Every presentation must be **under 10 minutes** (aim for about 8).
+
+| Order | Tue Dec 1 | Thu Dec 3 |
+|---|---|---|
+| 1 | Group 17 | Group 15 |
+| 2 | Group 11 | Group 2 |
+| 3 | Group 10 | Group 1 |
+| 4 | Group 6 | Group 4 |
+| 5 | Group 16 | Group 3 |
+| 6 | Group 8 | Group 9 |
+| 7 | Group 13 | Group 5 |
+| 8 | Group 7 | Group 12 |
+| 9 | Group 14 |  |
+
+### Assigned questions {#questions}
+
+Each group was randomly assigned one other group, almost always one that presents on the **other** day. Your group must ask that group at least one question after their presentation, so plan to be there both days. Anyone else is welcome to ask questions too.
+
+| Presenting group | Assigned to ask questions |
+|---|---|
+| Group 17 (Tue Dec 1) | Group 4 |
+| Group 11 (Tue Dec 1) | Group 15 |
+| Group 10 (Tue Dec 1) | Group 9 |
+| Group 6 (Tue Dec 1) | Group 2 |
+| Group 16 (Tue Dec 1) | Group 1 |
+| Group 8 (Tue Dec 1) | Group 5 |
+| Group 13 (Tue Dec 1) | Group 3 |
+| Group 7 (Tue Dec 1) | Group 12 |
+| Group 14 (Tue Dec 1) | Group 13 |
+| Group 15 (Thu Dec 3) | Group 8 |
+| Group 2 (Thu Dec 3) | Group 10 |
+| Group 1 (Thu Dec 3) | Group 7 |
+| Group 4 (Thu Dec 3) | Group 11 |
+| Group 3 (Thu Dec 3) | Group 14 |
+| Group 9 (Thu Dec 3) | Group 17 |
+| Group 5 (Thu Dec 3) | Group 6 |
+| Group 12 (Thu Dec 3) | Group 16 |
+
 ## What you submit
 
 - **Presentation file** (PDF or PPTX) — one upload per group on Canvas;
@@ -50,14 +90,195 @@ which you want.
   A few sentences is plenty. Only the teaching team sees it; it's how we
   make sure credit lands where the work happened.
 
-## How it's graded
+## What we're looking for
 
-The full rubric is attached to the Canvas assignment. The group grade covers
+Think of your presentation as a short lecture to the rest of the class.
+Your audience has taken the same course you have, so you can assume they
+know what an allele, a QTL, or CRISPR is. What they don't know is your
+topic. By the end of your talk, they should understand one plant
+genetics story well: what the problem or question is, what is known about
+the genetics behind it, how researchers figured that out, and what is
+still unresolved.
+
+**Go into the genetics.** A presentation that stays at the surface
+("drought is a big problem for wheat, and genetics can help") will not score
+well on depth. Strong presentations name the genes, alleles,
+mutations, or loci involved, explain how they work (the mechanism), and
+show the evidence: the experiment, the mapping study, the field trial, the
+figure from the paper. If you can say "researchers found X, and we know
+this because they did Y," you are at the right depth.
+
+**A shape that works:**
+
+- **Introduction.** The background your audience needs and why the topic
+  matters (a crop, a disease, a farmer's problem, a food security issue).
+  Keep it short, but don't skip it.
+- **Body.** The main portion. What is known about the genetics, how it was
+  discovered, and how it is being used or could be used (breeding, gene
+  editing, conservation, and so on). Give each slide one take-home message.
+- **Conclusion.** Pull the key insights together and end on one clear
+  message you want people to remember. Open questions and where the field
+  is heading make a good ending.
+
+**Slides.** Use figures, diagrams, and photos instead of walls of text, and
+make sure every image is high enough resolution to read from the back of
+the room. Put your citations on the slides where the claims are made, so
+the audience can see where each fact comes from (at least 5 citations
+total, in a consistent format, for papers and websites alike). A references
+slide at the end is a good idea too.
+
+**Time.** Under 10 minutes for the whole group, and aim for about 8. Practice
+out loud together with a timer, more than once, and cut until you are under
+10. Running long cuts into other groups' time, and a very short talk rarely
+leaves room to explore the topic in depth.
+
+**Working as a group.** We grade collaboration from how evenly the work was
+shared, so build your slides in a shared file (for example Google Slides)
+where the edit history shows who did what. Your individual statement should
+match what the group did.
+
+**Being in the audience.** Come both days. Asking at least one thoughtful
+question across December 1 and 3 is part of your individual grade, and
+good questions are part of what makes these two days fun.
+
+**Extra credit (up to 5 points)** goes to groups that bring something
+genuinely their own: an original framing, a creative way of explaining the
+genetics, a comparison or synthesis you won't find in a standard review.
+
+## How it's graded {#rubric}
+
+**100 points total, plus up to 5 extra credit.** Most criteria are one grade
+for the whole group. Two are graded for each student separately.
+
+| Criterion | Points | Graded for |
+|---|---|---|
+| Depth of content | 10 | Group |
+| Accuracy and relevance | 10 | Group |
+| Use of references (at least 5 citations) | 10 | Group |
+| Introduction | 5 | Group |
+| Body | 10 | Group |
+| Conclusion | 5 | Group |
+| Clarity and conciseness | 10 | Group |
+| Slide design | 10 | Group |
+| Collaboration | 10 | Group |
+| Time management and communication (under 10 minutes) | 5 | Group |
+| Individual contribution (from your statement) | 10 | Each student |
+| Audience engagement (attend, ask questions) | 5 | Each student |
+| **Total** | **100** | |
+| Extra credit: novelty | up to 5 | Group |
+
+The full rubric, with what each level looks like, is [below](#full-rubric). The group grade covers
 depth of content, accuracy, use of references (**at least 5 citations** on
 your slides), introduction / body / conclusion structure, clarity, slide
-design, collaboration, and time management (stay in the 5–10 minute window).
+design, collaboration, and time management (stay under 10 minutes).
 Two pieces are graded per student: your **individual contribution** (from
 your statement) and **audience engagement** — being present and engaged
 during the other groups' presentations, including asking at least one
 thoughtful question across the two days. Up to 5 extra credit points for
 genuinely creative insights or framings.
+
+## Full rubric
+
+Scores between levels are possible; the levels are anchors.
+
+(Group grade via the group presentation submission, except Individual
+Contribution and Audience Engagement, which are per-student.)
+
+### Depth of Content (10 pts)
+| Pts | Level | Description |
+|---|---|---|
+| 10 | Excellent | Explores the topic in real depth with clear command of the genetics/genomics involved; goes beyond surface-level description to mechanism and evidence. |
+| 7 | Good | Solid coverage with occasional shallow patches or hand-waving on the genetics. |
+| 4 | Developing | Mostly surface-level; genetics content is thin or garbled. |
+| 0 | Missing | Topic not meaningfully explored. |
+
+### Accuracy and Relevance (10 pts)
+| Pts | Level | Description |
+|---|---|---|
+| 10 | Excellent | Information is accurate, current, and consistently relevant to the topic. |
+| 7 | Good | Largely accurate with minor errors or occasional tangents. |
+| 4 | Developing | Multiple factual errors or substantial irrelevant content. |
+| 0 | Missing | Unreliable throughout. |
+
+### Use of References (10 pts)
+| Pts | Level | Description |
+|---|---|---|
+| 10 | Excellent | At least five citations used effectively where claims need support; correct citation format for papers and websites. |
+| 7 | Good | Meets the minimum but citations are uneven — some slides make claims without support, or formatting is inconsistent. |
+| 4 | Developing | Few citations, or sources not credible. |
+| 0 | Missing | No references. |
+
+### Introduction (5 pts)
+| Pts | Level | Description |
+|---|---|---|
+| 5 | Excellent | Provides the background the audience needs and sets up why the topic matters before diving in. |
+| 3 | Good | Background present but rushed, or the motivation is implied rather than stated. |
+| 0 | Missing | Presentation starts mid-topic with no setup. |
+
+### Body (10 pts)
+| Pts | Level | Description |
+|---|---|---|
+| 10 | Excellent | Clear structure; each slide carries a single take-home message; content per slide is digestible. |
+| 7 | Good | Mostly clear structure; a few slides are overloaded or lack a clear point. |
+| 4 | Developing | Structure is hard to follow; many slides cram multiple ideas or none. |
+| 0 | Missing | No discernible structure. |
+
+### Conclusion (5 pts)
+| Pts | Level | Description |
+|---|---|---|
+| 5 | Excellent | Summarizes the key insights and lands a strong, memorable final message. |
+| 3 | Good | Summarizes but trails off; no distinct final takeaway. |
+| 0 | Missing | Ends abruptly with no conclusion. |
+
+### Clarity and Conciseness (10 pts)
+| Pts | Level | Description |
+|---|---|---|
+| 10 | Excellent | Clear and concise throughout; no walls of text or illegible low-resolution images. |
+| 7 | Good | Mostly clear; occasional dense text or a low-quality image. |
+| 4 | Developing | Recurrent dense slides or unreadable graphics. |
+| 0 | Missing | Consistently unclear. |
+
+### Slide Design (10 pts)
+| Pts | Level | Description |
+|---|---|---|
+| 10 | Excellent | Visually appealing; good balance of text, images, and white space; high-quality, legible graphics. |
+| 7 | Good | Functional design with some cluttered or bare slides. |
+| 4 | Developing | Design actively hinders comprehension. |
+| 0 | Missing | No attention to design. |
+
+### Collaboration (10 pts)
+| Pts | Level | Description |
+|---|---|---|
+| 10 | Excellent | Balanced contributions across the group, evident in the shared doc/presentation history and consistent with the contribution statements. |
+| 7 | Good | Everyone contributed but noticeably unevenly. |
+| 4 | Developing | One or two members carried the project; others' contributions are hard to identify. |
+| 0 | Missing | No evidence of collaboration. |
+
+### Individual Contribution (10 pts, per student)
+| Pts | Level | Description |
+|---|---|---|
+| 10 | Excellent | Confidential statement accurately and specifically describes the student's own contribution and the group's division of work; consistent with the group's account. |
+| 7 | Good | Statement submitted but vague about what the student actually did. |
+| 4 | Developing | Statement minimal or inconsistent with other evidence. |
+| 0 | Missing | No statement submitted. |
+
+### Time Management and Communication (5 pts)
+| Pts | Level | Description |
+|---|---|---|
+| 5 | Excellent | Under 10 minutes; efficient coverage; clear articulation, good pacing, engages the audience. |
+| 3 | Good | Slightly over/under time, or pacing issues (rushed ending, long tangents). |
+| 0 | Missing | Far outside the time window or disengaged delivery. |
+
+### Audience Engagement (5 pts, per student)
+| Pts | Level | Description |
+|---|---|---|
+| 5 | Excellent | Actively engaged during other groups' presentations, including asking at least one thoughtful question across the two days. |
+| 3 | Good | Attentive but did not contribute questions/discussion. |
+| 0 | Missing | Absent or disengaged during other presentations. |
+
+### Extra Credit: Novelty (up to 5 pts)
+| Pts | Level | Description |
+|---|---|---|
+| 5 | Excellent | Presents genuinely creative insights, framings, or approaches not found in standard materials. |
+| 2 | Good | Some fresh angle beyond the obvious treatment. |
+| 0 | None | Standard treatment. |
