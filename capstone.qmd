@@ -5,7 +5,7 @@ title: "Capstone: Final Group Presentation"
 The final for this class is a **group presentation (under 10 minutes)** exploring
 a plant genetics topic of your group's choice, presented in class on
 **December 1 and 3**. Groups are 4–5 people. It's worth 30% of your grade
-(100 points, plus up to 5 extra credit).
+(100 points).
 
 ## Start thinking about it now
 
@@ -147,13 +147,9 @@ groups. Your group also has an assigned group to ask a question
 ([see the table above](#questions)), and good questions are part of what
 makes these two days fun.
 
-**Extra credit (up to 5 points)** goes to groups that bring something
-genuinely their own: an original framing, a creative way of explaining the
-genetics, a comparison or synthesis you won't find in a standard review.
-
 ## How it's graded {#rubric}
 
-**100 points total, plus up to 5 extra credit.** Everything is one grade for
+**100 points total.** Everything is one grade for
 the whole group except the two rows marked *each student*.
 
 | Criterion | Pts | What we're looking for |
@@ -170,4 +166,3 @@ the whole group except the two rows marked *each student*.
 | Time management and communication | 5 | Under 10 minutes, good pacing, clear delivery. |
 | Individual contribution (*each student*) | 10 | Your contributions statement shows a real share of the work and matches the group's account. |
 | Audience engagement (*each student*) | 5 | Present and paying attention to the other groups on both days. |
-| Extra credit: novelty | up to 5 | Something genuinely your own: an original framing, a creative explanation, or a synthesis you won't find in a standard review. |
